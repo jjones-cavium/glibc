@@ -1,3 +1,8 @@
+2012-02-15  Viju Vincent  <vijuvince@gmail.com>
+
+	* sysdeps/mips/dl-trampoline.c (__dl_runtime_resolve): Use locking
+	around calls to _dl_lookup_symbol_x.
+
 2012-08-13  Maxim Kuvyrkov  <maxim@codesourcery.com>
 
 	[__GNUC_PREREQ (4, 8)]
