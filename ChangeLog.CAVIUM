@@ -1,3 +1,12 @@
+2014-10-16  Manjunath Matti  <mmatti@caviumnetworks.com>
+
+	Backport for Valgrind.
+
+	2012-07-06  Petar Jovanovic  <petar.jovanovic@rt-rk.com>
+
+	* sysdeps/mips/dl-machine.h (RTLD_START): Do not store data below
+	the stack pointer.
+
 2014-09-30  Manjunath Matti  <mmatti@caviumnetworks.com>
 
 	Ported for Bug #12250.

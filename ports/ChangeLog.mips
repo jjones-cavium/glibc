@@ -154,6 +154,11 @@
 	Define in terms of __atomic_fetch_add.
 	[!__GNUC_PREREQ (4, 8)]: Update formatting.
 
+2012-07-06  Petar Jovanovic  <petar.jovanovic@rt-rk.com>
+
+	* sysdeps/mips/dl-machine.h (RTLD_START): Do not store data below
+	the stack pointer.
+
 2012-06-19  Joseph Myers  <joseph@codesourcery.com>
 
 	* sysdeps/unix/sysv/linux/mips/mips32/nptl/ld.abilist: Update
