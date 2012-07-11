@@ -1,0 +1,6 @@
+2012-07-10  Andrew Pinski  <apinski@cavium.com>
+
+	* configure.in: Define the default includes to being none.
+	* sysdeps/i386/configure.in: Likewise.
+	* configure: Regnerate.
+	* sysdeps/i386/configure: Regenerate.
