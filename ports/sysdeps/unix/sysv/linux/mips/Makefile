@@ -12,7 +12,7 @@ syscall-list-includes := sgidefs.h
 syscall-list-o32-options := -mabi=32
 syscall-list-o32-condition := _MIPS_SIM == _MIPS_SIM_ABI32
 syscall-list-n32-options := -mabi=n32
-syscall-list-n32-condition := _MIPS_SIM == _MIPS_SIM_ABIN32
+syscall-list-n32-condition := _MIPS_SIM == _MIPS_SIM_NABI32
 syscall-list-n64-options := -mabi=64
 syscall-list-n64-condition := _MIPS_SIM == _MIPS_SIM_ABI64
 endif
