@@ -1,5 +1,14 @@
 2012-07-11  Adam Nemet  <anemet@caviumnetworks.com>
 
+	Bug #1494
+	* config.make.in (libc_cv_slibdir): Rename from slibdir.
+	* configure.in: Rename libc_cv_slibdir to slibdir.
+	* sysdeps/unix/sysv/linux/configure.in: Likewise.
+	* configure: Regenerate.
+	* sysdeps/unix/sysv/linux/configure: Likewise.
+
+2012-07-11  Adam Nemet  <anemet@caviumnetworks.com>
+
         Bug #1633
         * include/malloc.h: Add trim to declaration of _int_free.
         * malloc/malloc.c: Adjust _int_free declaration.
