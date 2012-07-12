@@ -596,7 +596,7 @@ libc_cv_forced_unwind
 libc_cv_rootsbindir
 libc_cv_sysconfdir
 libc_cv_localedir
-libc_cv_slibdir
+slibdir
 old_glibc_headers
 libc_cv_gcc_unwind_find_fde
 sizeof_long_double
