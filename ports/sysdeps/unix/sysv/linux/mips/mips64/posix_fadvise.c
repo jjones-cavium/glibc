@@ -1,4 +1,4 @@
-/* Copyright (C) 2007 Free Software Foundation, Inc.
+/* Copyright (C) 2003 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -20,13 +20,23 @@
 #include <fcntl.h>
 #include <sysdep.h>
 
-/* Advice the system about the expected behaviour of the application with
-   respect to the file associated with FD.  */
+/* Copied from sysdeps/unix/sysv/linux directory. The kernel expects 4 
+   parameters for fadvise64 system call. Applies to both n32 and n64 ABI.
+   This fixes posix_fadvise tests from LTP 20080131 release. */
+
+/* This file is a modified version of the generic file to invoke the 
+   system call with four parameters. Refer to posix_fadvise64.c
+   for more details.
+
+   In the mainline, the posix_fadvise() is added to 
+   mips/mips64/n32/syscalls.list and posix_fadvise.c is not present. In 
+   such case, the posix_fadvise.c gets generated while building glibc. 
+   The posix_fadvise() returns -1 in case of error, instead the function 
+   should return errno. */
 
 int
-__posix_fadvise64_l64 (int fd, off64_t offset, off64_t len, int advise)
+posix_fadvise (int fd, off_t offset, off_t len, int advise)
 {
-/* MIPS kernel only has NR_fadvise64 which acts as NR_fadvise64_64 */
 #ifdef __NR_fadvise64
   INTERNAL_SYSCALL_DECL (err);
   int ret = INTERNAL_SYSCALL (fadvise64, err, 4, fd, offset, len, advise);
@@ -37,20 +47,3 @@ __posix_fadvise64_l64 (int fd, off64_t offset, off64_t len, int advise)
   return ENOSYS;
 #endif
 }
-
-#include <shlib-compat.h>
-
-#if SHLIB_COMPAT(libc, GLIBC_2_2, GLIBC_2_3_3)
-
-int
-attribute_compat_text_section
-__posix_fadvise64_l32 (int fd, off64_t offset, size_t len, int advise)
-{
-  return __posix_fadvise64_l64 (fd, offset, len, advise);
-}
-
-versioned_symbol (libc, __posix_fadvise64_l64, posix_fadvise64, GLIBC_2_3_3);
-compat_symbol (libc, __posix_fadvise64_l32, posix_fadvise64, GLIBC_2_2);
-#else
-strong_alias (__posix_fadvise64_l64, posix_fadvise64);
-#endif
