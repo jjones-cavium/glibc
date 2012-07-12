@@ -1,3 +1,9 @@
+2012-07-11  Andrew Pinski  <apinski@caviumnetworks.com>
+
+	* ports/sysdeps/mips/Makefile (CFLAGS-initfini.s): Compile
+	Also with -fno-asynchronous-unwind-tables.
+	(CFLAGS-pt-initfini.s): Likewise.
+
 2012-07-11  Chandrakala Chavva  <cchavva@caviumnetworks.com>
             Andrew Pinski  <apinski@cavium.com>
 
