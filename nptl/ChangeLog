@@ -1,3 +1,9 @@
+2012-08-15  Tom de Vries  <vries@codesourcery.com>
+	    Maxim Kuvyrkov  <maxim@codesourcery.com>
+
+	* sysdeps/pthread/bits/libc-lockP.h (__libc_lock_lock)
+	(__libc_lock_trylock): Allow pre-existing definitions.
+
 2012-03-06  Ulrich Drepper  <drepper@gmail.com>
 
 	* sysdeps/pthread/bits/libc-lock.h: Split information not needed in
