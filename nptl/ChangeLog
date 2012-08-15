@@ -16,6 +16,11 @@
 	(__condvar_cleanup1): Likewise.
 	* tst-cond25.c: New test case.
 
+2012-08-15  Maxim Kuvyrkov  <maxim@codesourcery.com>
+
+	* pthread_spin_lock.c: New file.
+	* pthread_spin_trylock.c: New file.
+
 2012-10-05  Siddhesh Poyarekar  <siddhesh@redhat.com>
 
 	[BZ #14417]
