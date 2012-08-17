@@ -1,6 +1,11 @@
 GLIBC_PROVIDES dnl See aclocal.m4 in the top level source directory.
 # Local configure fragment for sysdeps/i386.
 
+# The glibc should not depend on any header files
+AC_DEFUN([_AC_INCLUDES_DEFAULT_REQUIREMENTS],
+  [m4_divert_text([DEFAULTS],
+    [ac_includes_default='/* none */'])]) 
+
 AC_HEADER_CHECK([cpuid.h], ,
   [AC_MSG_ERROR([gcc must provide the <cpuid.h> header])])
 

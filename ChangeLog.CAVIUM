@@ -1,0 +1,16 @@
+2012-07-11  Adam Nemet  <anemet@caviumnetworks.com>
+            Chandrakala Chavva  <cchavva@caviumnetworks.com>
+
+        * elf/ldd.bash.in: Check for $BASH before invoking bash specific
+        commands.
+
+2012-07-11  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/i386/configure: Regenerate.
+
+2012-07-10  Andrew Pinski  <apinski@cavium.com>
+
+	* configure.in: Define the default includes to being none.
+	* sysdeps/i386/configure.in: Likewise.
+	* configure: Regnerate.
+	* sysdeps/i386/configure: Regenerate.
