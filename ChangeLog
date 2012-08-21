@@ -1,3 +1,9 @@
+2012-08-21  Roland McGrath  <roland@hack.frob.com>
+
+	* csu/elf-init.c (__libc_csu_irel): Function removed.
+	* csu/libc-start.c (apply_irel): New function.
+	(LIBC_START_MAIN): Call it instead of __libc_csu_irel.
+
 2012-08-06  Roland McGrath  <roland@hack.frob.com>
 
 	* dirent/alphasort.c [_DIRENT_MATCHES_DIRENT64]:
