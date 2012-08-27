@@ -1,3 +1,7 @@
+2012-08-27  Guido Guenther  <agx@sigxcpu.org>
+
+	* sysdeps/mips/fpu_control.h (_FPU_RESERVED): Set bit 23.
+
 2012-08-15  Tom de Vries  <vries@codesourcery.com>
 	    Maxim Kuvyrkov  <maxim@codesourcery.com>
 
