@@ -7,7 +7,9 @@ case "$prefix" in
   # that the relative links it creates between /usr/lib and /lib work.
   case $machine in
   mips/mips64/n*/mips64octeon2 )
-    platform=/octeon2
+    platform=/octeon2;;
+  mips/mips64/n*/mips64octeon3 )
+    platform=-fp;;
   esac
   # 64-bit libraries on bi-arch platforms go in /lib64 instead of /lib.
   # Allow earlier configure scripts to handle slibdir, libdir,
