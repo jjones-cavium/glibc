@@ -4028,7 +4028,7 @@ _int_free(mstate av, mchunkptr p, int have_lock, int trim)
 #ifndef MORECORE_CANNOT_TRIM
 	if (trim
 	    && ((unsigned long)(chunksize(av->top)) >=
-	    (unsigned long)(mp_.trim_threshold))
+	    (unsigned long)(mp_.trim_threshold)))
 	  systrim(mp_.top_pad, av);
 #endif
       } else {

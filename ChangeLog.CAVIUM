@@ -1,3 +1,7 @@
+2012-09-07  Andrew Pinski  <apinski@cavium.com>
+
+	* malloc/malloc.c (_int_free): Fix merge typo with the last patch.
+
 2012-07-26  Chandrakala Chavva  <cchavva@caviumnetworks.com>
 
 	Patch from NSN
