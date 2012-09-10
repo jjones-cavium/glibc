@@ -1,3 +1,7 @@
+2012-09-10  Andrew Pinski  <apinski@cavium.com>
+
+	* libio/stdio.h (gets): Declare it for __USE_GNU also.
+
 2012-09-07  Andrew Pinski  <apinski@cavium.com>
 
 	* malloc/malloc.c (_int_free): Fix merge typo with the last patch.
