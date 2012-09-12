@@ -80,7 +80,8 @@ typedef __socklen_t socklen_t;
 #define PF_CAIF		37	/* CAIF sockets.  */
 #define PF_ALG		38	/* Algorithm sockets.  */
 #define PF_NFC		39	/* NFC sockets.  */
-#define	PF_MAX		40	/* For now..  */
+#define PF_BUS          40      /* AF_BUS sockets */
+#define	PF_MAX		41	/* For now..  */
 
 /* Address families.  */
 #define	AF_UNSPEC	PF_UNSPEC
@@ -124,6 +125,7 @@ typedef __socklen_t socklen_t;
 #define AF_CAIF		PF_CAIF
 #define AF_ALG		PF_ALG
 #define AF_NFC		PF_NFC
+#define AF_BUS          PF_BUS
 #define	AF_MAX		PF_MAX
 
 /* Socket level values.  Others are defined in the appropriate headers.
@@ -137,6 +139,7 @@ typedef __socklen_t socklen_t;
 #define SOL_ATM		264	/* ATM layer (cell level).  */
 #define SOL_AAL		265	/* ATM Adaption Layer (packet level).  */
 #define SOL_IRDA	266
+#define SOL_BUS         280
 
 /* Maximum queue length specifiable by listen.  */
 #define SOMAXCONN	128
