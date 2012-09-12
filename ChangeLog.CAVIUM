@@ -1,6 +1,15 @@
 2012-09-12  Andrew Pinski  <apinski@cavium.com>
 
 	Bug #4651
+	Port from the add-af-bus branch
+	* socket/sys/bus.h (BUS_DEL_ADDR): New define.
+	(BUS_SET_EAVESDROP): New define.
+	(BUS_UNSET_EAVESDROP): New define.
+
+2012-09-12  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #4651
+	Port from the add-af-bus branch
 	* socket/sys/bus.h (SOL_BUS): New define.
 	* sysdeps/unix/sysv/linux/bits/socket.h (SOL_BUS): Remove.
 

@@ -32,8 +32,11 @@ __BEGIN_DECLS
 
 /* setsockopt() operations */
 #define SOL_BUS         280
-#define BUS_ADD_ADDR    1
-#define BUS_JOIN_BUS    2
+#define BUS_ADD_ADDR        1
+#define BUS_JOIN_BUS        2
+#define BUS_DEL_ADDR        3
+#define BUS_SET_EAVESDROP   4
+#define BUS_UNSET_EAVESDROP 5
 
 /* Bus address */
 struct bus_addr
