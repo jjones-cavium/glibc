@@ -139,7 +139,6 @@ typedef __socklen_t socklen_t;
 #define SOL_ATM		264	/* ATM layer (cell level).  */
 #define SOL_AAL		265	/* ATM Adaption Layer (packet level).  */
 #define SOL_IRDA	266
-#define SOL_BUS         280
 
 /* Maximum queue length specifiable by listen.  */
 #define SOMAXCONN	128

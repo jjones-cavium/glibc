@@ -31,6 +31,7 @@ __BEGIN_DECLS
 #define BUS_PROTO_MAX   1
 
 /* setsockopt() operations */
+#define SOL_BUS         280
 #define BUS_ADD_ADDR    1
 #define BUS_JOIN_BUS    2
 

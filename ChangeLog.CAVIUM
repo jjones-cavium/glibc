@@ -1,3 +1,23 @@
+2012-09-12  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #4651
+	* socket/sys/bus.h (SOL_BUS): New define.
+	* sysdeps/unix/sysv/linux/bits/socket.h (SOL_BUS): Remove.
+
+2012-09-12  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #4651
+	Port from the add-af-bus branch
+	* Makefile (installed-headers): Add socket/sys/bus.h.
+	* include/sys/bus.h: New file.
+	* socket/Makefile (headers): Add sys/bus.h.
+	* socket/sys/bus.h: New file.
+	* socket/sys/socket.h (__SOCKADDR_ALLTYPES): Add sockaddr_bus.
+	* sysdeps/unix/sysv/linux/bits/socket.h (AF_BUS): New define.
+	(PF_MAX): Increment by 1.
+	(AF_BUS): New define.
+	(SOL_BUS): New define.
+
 2012-09-10  Andrew Pinski  <apinski@cavium.com>
 
 	Bug #4632
