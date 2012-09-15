@@ -1,3 +1,10 @@
+2012-09-14  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/arm/configure.in: Add the check
+	for hard-float ABI here.
+	The library directory for the soft-float ABI is libsf.
+	* ports/sysdeps/unix/sysv/linux/arm/configure: Regenerate.
+
 2012-09-12  Andrew Pinski  <apinski@cavium.com>
 
 	Bug #4651
