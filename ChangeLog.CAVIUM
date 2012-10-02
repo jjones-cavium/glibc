@@ -1,3 +1,8 @@
+2012-10-01  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #4796
+	* ports/sysdeps/unix/sysv/linux/arm/bits/wchar.h: New file.
+
 2012-09-14  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/arm/configure.in: Add the check
