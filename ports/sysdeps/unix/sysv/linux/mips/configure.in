@@ -4,29 +4,23 @@ GLIBC_PROVIDES dnl See aclocal.m4 in the top level source directory.
 
 case "$prefix" in
 /usr | /usr/)
-  # Make the build system aware of where we install octeon2 libs so
-  # that the relative links it creates between /usr/lib and /lib work.
-  case $machine in
-  mips/mips64/n*/mips64octeon2 )
-    platform=/octeon2
-  esac
   # 64-bit libraries on bi-arch platforms go in /lib64 instead of /lib.
   # Allow earlier configure scripts to handle slibdir, libdir,
   # and libc_cv_localedir.
   test -n "$slibdir" || \
   case $machine in
   mips/mips64/n64/* )
-    slibdir="/lib64$platform"
+    slibdir="/lib64"
     if test "$libdir" = '${exec_prefix}/lib'; then
-      libdir='${exec_prefix}/lib64'$platform;
+      libdir='${exec_prefix}/lib64';
       # Locale data can be shared between 32bit and 64bit libraries
       libc_cv_localedir='${exec_prefix}/lib/locale'
     fi
     ;;
   mips/mips64/n32/* )
-    slibdir="/lib32$platform"
+    slibdir="/lib32"
     if test "$libdir" = '${exec_prefix}/lib'; then
-      libdir='${exec_prefix}/lib32'$platform;
+      libdir='${exec_prefix}/lib32';
       # Locale data can be shared between 32bit and 64bit libraries
       libc_cv_localedir='${exec_prefix}/lib/locale'
     fi
