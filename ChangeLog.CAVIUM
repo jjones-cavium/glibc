@@ -1,3 +1,8 @@
+2012-10-27  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #5032
+	* ports/sysdeps/unix/sysv/linux/mips/mips64/n64/fcntl.c: New file.
+
 2012-10-10  Andrew Pinski  <apinski@cavium.com>
 
 	Bug #4882
