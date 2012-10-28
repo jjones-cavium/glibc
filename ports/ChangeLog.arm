@@ -1,3 +1,7 @@
+2012-08-08  Roland McGrath  <roland@hack.frob.com>
+
+	* sysdeps/arm/sotruss-lib.c: New file.
+
 2012-08-23  Steve McIntyre  <steve.mcintyre@linaro.org>
 
 	* sysdeps/unix/sysv/linux/arm/ldsodefs.h (VALID_FLOAT_ABI): Define
