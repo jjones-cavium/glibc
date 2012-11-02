@@ -28,6 +28,7 @@ clear_once_control (void *arg)
 {
   pthread_once_t *once_control = (pthread_once_t *) arg;
 
+  atomic_full_barrier ();
   *once_control = 0;
   lll_futex_wake (once_control, INT_MAX, LLL_PRIVATE);
 }
@@ -80,6 +81,7 @@ __pthread_once (once_control, init_routine)
 
 
       /* Add one to *once_control.  */
+      atomic_full_barrier ();
       atomic_increment (once_control);
 
       /* Wake up all other threads.  */
