@@ -1,3 +1,7 @@
+2012-11-08  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
+
+	* elf/elf.h: Update comment before AArch64 relocations.
+
 2012-11-07  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
 
 	* elf/elf.h (EM_AARCH64): New macro.
