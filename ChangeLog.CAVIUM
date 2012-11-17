@@ -1,5 +1,13 @@
 2012-11-16  Andrew Pinski  <apinski@cavium.com>
 
+	Bug #5321
+	* ports/sysdeps/unix/sysv/linux/mips/bits/fcntl.h (F_GETLK64): Fix
+	defintion for N64.
+	(F_SETLK64): Likewise.
+	(F_SETLKW64): Likewise.
+
+2012-11-16  Andrew Pinski  <apinski@cavium.com>
+
 	Revert:
 	2012-10-27  Andrew Pinski  <apinski@cavium.com>
 	Bug #5032

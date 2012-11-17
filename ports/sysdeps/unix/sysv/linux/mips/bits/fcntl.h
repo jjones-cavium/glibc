@@ -84,9 +84,15 @@
 # define F_SETLKW	F_SETLKW64 /* Set record locking info (blocking).  */
 #endif
 
-#define F_GETLK64	33	/* Get record locking info.  */
-#define F_SETLK64	34	/* Set record locking info (non-blocking).  */
-#define F_SETLKW64	35	/* Set record locking info (blocking).	*/
+#if _MIPS_SIM != _ABI64
+# define F_GETLK64	33	/* Get record locking info.  */
+# define F_SETLK64	34	/* Set record locking info (non-blocking).  */
+# define F_SETLKW64	35	/* Set record locking info (blocking).	*/
+#else
+# define F_GETLK64	14	/* Get record locking info.	*/
+# define F_SETLK64	6	/* Set record locking info (non-blocking).*/
+# define F_SETLKW64	7	/* Set record locking info (blocking).  */
+#endif
 
 #if defined __USE_BSD || defined __USE_UNIX98 || defined __USE_XOPEN2K8
 # define F_SETOWN	24	/* Get owner (process receiving SIGIO).  */
