@@ -33,4 +33,3 @@ feclearexcept (int excepts)
 
   return 0;
 }
-libm_hidden_def (feclearexcept)
