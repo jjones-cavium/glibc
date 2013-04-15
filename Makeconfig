@@ -492,6 +492,7 @@ rtld-tests-LDFLAGS = $(rtld-LDFLAGS)
 endif
 endif
 endif
+endif
 ifndef link-libc
 ifeq (yes,$(build-shared))
 # We need the versioned name of libc.so in the deps of $(others) et al
