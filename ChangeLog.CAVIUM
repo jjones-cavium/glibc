@@ -1,5 +1,10 @@
 2013-04-13  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure.in: s/libc_cv_slibdir/slibdir.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.
+
+2013-04-13  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/aarch64/fpu/fclrexcpt.c (feclearexcept):
 	Remove libm_hidden_ver.
 
