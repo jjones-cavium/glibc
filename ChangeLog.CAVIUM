@@ -1,3 +1,8 @@
+2013-05-17  Alexandre Oliva <aoliva@redhat.com>
+
+	* sysdeps/unix/sysv/linux/ifaddrs.c (__netlink_request): Handle better
+	truncated messages.
+
 2013-04-13  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/configure.in: s/libc_cv_slibdir/slibdir.
