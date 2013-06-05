@@ -1,3 +1,9 @@
+2013-06-04  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
+
+	* sysdeps/unix/sysv/linux/aarch64/getcontext.S (__getcontext):
+	Initialize pstate.
+	* sysdeps/unix/sysv/linux/aarch64/ucontext_i.sym (oPSTATE): Define.
+
 2013-05-23  Venkataramanan Kumar <venkataramanan.kumar@linaro.org>
 
 	* sysdeps/aarch64/machine-gmon.h: Remove.
