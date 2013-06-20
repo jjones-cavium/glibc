@@ -23,6 +23,17 @@
 	* Makerules (make-shlib-link): Use rellns-sh to get relative name
 	for source.
 
+2013-02-12  Andreas Schwab  <schwab@suse.de>
+
+	[BZ #15078]
+	* posix/regexec.c (extend_buffers): Add parameter min_len.
+	(check_matching): Pass minimum needed length.
+	(clean_state_log_if_needed): Likewise.
+	(get_subexp): Likewise.
+	* posix/Makefile (tests): Add bug-regex34.
+	(bug-regex34-ENV): Define.
+	* posix/bug-regex34.c: New file.
+
 2012-12-18  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
 
 	* manual/contrib.texi (Contributors): Spelling correction.
