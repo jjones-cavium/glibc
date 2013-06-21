@@ -1,3 +1,12 @@
+2013-07-20  Andrew Pinski  <apinski@cavium.com>
+
+	* elf (R_AARCH64_P32_ABS32): New macro.
+        (R_AARCH64_P32_COPY, R_AARCH64_P32_GLOB_DAT, R_AARCH64_P32_JUMP_SLOT): Likewise.
+        (R_AARCH64_P32_RELATIVE, R_AARCH64_P32_TLS_DTPMOD): Likewise.
+        (R_AARCH64_P32_TLS_DTPREL, R_AARCH64_P32_TLS_TPREL): Likewise.
+        (R_AARCH64_P32_TLSDESC): Likewise.
+
+
 2013-05-21  Andreas Schwab  <schwab@suse.de>
 
 	[BZ #15493]
