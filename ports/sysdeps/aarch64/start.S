@@ -25,7 +25,7 @@
 
    At this entry point, most registers' values are unspecified, except:
 
-   x0		Contains a function pointer to be registered with `atexit'.
+   x0/w0		Contains a function pointer to be registered with `atexit'.
 		This is how the dynamic linker arranges to have DT_FINI
 		functions called for shared libraries that have been loaded
 		before this code runs.

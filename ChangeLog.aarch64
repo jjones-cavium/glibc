@@ -1,3 +1,9 @@
+2013-07-25  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/start.S: Update comment about x0.
+	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h: Add support
+	for ILP32.
+
 2013-07-20  Andrew Pinski  <apinski@cavium.com>
 
 	* elf (R_AARCH64_P32_ABS32): New macro.
@@ -5,7 +11,6 @@
         (R_AARCH64_P32_RELATIVE, R_AARCH64_P32_TLS_DTPMOD): Likewise.
         (R_AARCH64_P32_TLS_DTPREL, R_AARCH64_P32_TLS_TPREL): Likewise.
         (R_AARCH64_P32_TLSDESC): Likewise.
-
 
 2013-05-21  Andreas Schwab  <schwab@suse.de>
 

@@ -325,44 +325,48 @@ __local_syscall_error:						\
 # define CLOBBER_ARGS_7 \
   "x7", "x9", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17", "x18"
 
+/* Convert X to a long long, without losing any bits if it is one
+   already or warning if it is a 32-bit pointer.  */
+#define ARGIFY(X) ((long long) (__typeof__ ((X) - (X))) (X))
+
 # define LOAD_ARGS_0()				\
-  register long _x0 asm ("x0");
+  register long long _x0 asm ("x0");
 
 # define ASM_ARGS_0
 # define LOAD_ARGS_1(x0)			\
-  long _x0tmp = (long) (x0);			\
+  long long _x0tmp = ARGIFY (x0);		\
   LOAD_ARGS_0 ()				\
   _x0 = _x0tmp;
 # define ASM_ARGS_1	"r" (_x0)
 # define LOAD_ARGS_2(x0, x1)			\
-  long _x1tmp = (long) (x1);			\
+  long long _x1tmp = ARGIFY (x1);		\
   LOAD_ARGS_1 (x0)				\
   register long _x1 asm ("x1") = _x1tmp;
 # define ASM_ARGS_2	ASM_ARGS_1, "r" (_x1)
 # define LOAD_ARGS_3(x0, x1, x2)		\
-  long _x2tmp = (long) (x2);			\
+  long long _x2tmp =  ARGIFY (x2);		\
   LOAD_ARGS_2 (x0, x1)				\
-  register long _x2 asm ("x2") = _x2tmp;
+  register long long _x2 asm ("x2") = _x2tmp;
 # define ASM_ARGS_3	ASM_ARGS_2, "r" (_x2)
 # define LOAD_ARGS_4(x0, x1, x2, x3)		\
-  long _x3tmp = (long) (x3);			\
+  long long _x3tmp = ARGIFY (x3);		\
   LOAD_ARGS_3 (x0, x1, x2)			\
-  register long _x3 asm ("x3") = _x3tmp;
+  register long long _x3 asm ("x3") = _x3tmp;
 # define ASM_ARGS_4	ASM_ARGS_3, "r" (_x3)
 # define LOAD_ARGS_5(x0, x1, x2, x3, x4)	\
-  long _x4tmp = (long) (x4);			\
+  long long _x4tmp = ARGIFY (x4);		\
   LOAD_ARGS_4 (x0, x1, x2, x3)			\
-  register long _x4 asm ("x4") = _x4tmp;
+  register long long _x4 asm ("x4") = _x4tmp;
 # define ASM_ARGS_5	ASM_ARGS_4, "r" (_x4)
 # define LOAD_ARGS_6(x0, x1, x2, x3, x4, x5)	\
-  long _x5tmp = (long) (x5);			\
+  long long _x5tmp = ARGIFY (x5);		\
   LOAD_ARGS_5 (x0, x1, x2, x3, x4)		\
-  register long _x5 asm ("x5") = _x5tmp;
+  register long long _x5 asm ("x5") = _x5tmp;
 # define ASM_ARGS_6	ASM_ARGS_5, "r" (_x5)
 # define LOAD_ARGS_7(x0, x1, x2, x3, x4, x5, x6)\
-  long _x6tmp = (long) (x6);			\
+  long long _x6tmp = ARGIFY (x6);		\
   LOAD_ARGS_6 (x0, x1, x2, x3, x4, x5)		\
-  register long _x6 asm ("x6") = _x6tmp;
+  register long long _x6 asm ("x6") = _x6tmp;
 # define ASM_ARGS_7	ASM_ARGS_6, "r" (_x6)
 
 # undef INTERNAL_SYSCALL_NCS
