@@ -200,6 +200,17 @@ __local_syscall_error:						\
 # define UNDOARGS_6 /* nothing */
 # define UNDOARGS_7 /* nothing */
 
+/* Help tackle the pointer size difference between ELF64 and ELF32.  */
+#ifdef __LP64__
+#define PTR_REG(n)	x##n
+#define PTR_SIZE	8
+#define PTR_LOG_SIZE	3
+#else
+#define PTR_REG(n)	w##n
+#define PTR_SIZE	4
+#define PTR_LOG_SIZE	2
+#endif
+
 #else /* not __ASSEMBLER__ */
 
 # ifdef SHARED

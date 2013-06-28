@@ -1,5 +1,19 @@
 2013-07-25  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): New macro.
+	(PTR_SIZE): New macro.
+	(PTR_LOG_SIZE): New macro.
+	* ports/sysdeps/unix/sysv/linux/aarch64/nptl/vfork.S: Use
+	PTR_REG for the subtraction.
+	* ports/sysdeps/unix/sysv/linux/aarch64/nptl/pt-vfork.S:
+	Likewise.
+	* ports/sysdeps/unix/sysv/linux/aarch64/getcontext.S:
+	Likewise.
+	* ports/sysdeps/aarch64/dl-tlsdesc.S: Start to port to ILP32.
+	* ports/sysdeps/aarch64/crti.S: Likewise.
+
+2013-07-25  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/aarch64/start.S: Update comment about x0.
 	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h: Add support
 	for ILP32.
