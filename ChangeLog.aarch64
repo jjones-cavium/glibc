@@ -1,3 +1,8 @@
+2013-07-01  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/crti.S: Include
+	sysdep.h for the macros.
+
 2013-06-25  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): New macro.
