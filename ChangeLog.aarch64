@@ -1,4 +1,4 @@
-2013-07-25  Andrew Pinski  <apinski@cavium.com>
+2013-06-25  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): New macro.
 	(PTR_SIZE): New macro.
@@ -12,13 +12,13 @@
 	* ports/sysdeps/aarch64/dl-tlsdesc.S: Start to port to ILP32.
 	* ports/sysdeps/aarch64/crti.S: Likewise.
 
-2013-07-25  Andrew Pinski  <apinski@cavium.com>
+2013-06-25  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/start.S: Update comment about x0.
 	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h: Add support
 	for ILP32.
 
-2013-07-20  Andrew Pinski  <apinski@cavium.com>
+2013-06-20  Andrew Pinski  <apinski@cavium.com>
 
 	* elf (R_AARCH64_P32_ABS32): New macro.
         (R_AARCH64_P32_COPY, R_AARCH64_P32_GLOB_DAT, R_AARCH64_P32_JUMP_SLOT): Likewise.
