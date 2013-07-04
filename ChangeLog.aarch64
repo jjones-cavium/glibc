@@ -1,3 +1,17 @@
+2013-07-04  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/ilp32/Implies: New file.
+	* ports/sysdeps/aarch64/lp64/Implies: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies-after: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies-after: New file.
+	* ports/sysdeps/aarch64/preconfigure: Set machine based on the options (ilp32 vs lp64).
+	* ports/sysdeps/aarch64/shlib-versions: Set ld.so based on HAVE_AARCH64_ILP32.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure.in: Set slibdir and libdir based
+	on the machine (ilp32 vs lp64).
+	* ports/sysdeps/unix/sysv/linux/aarch64/ldconfig.h (SYSDEP_KNOWN_INTERPRETER_NAMES):
+	Add /lib/ld-linux32-aarch64.so.1 as the known interpreters.
+
 2013-07-01  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/crti.S: Include
