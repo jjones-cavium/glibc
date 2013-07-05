@@ -1,5 +1,22 @@
 2013-07-05  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/unix/sysv/linux/aarch64/Implies: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies-after: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/kernel-features.h (__ASSUME_MMAP2_SYSCALL):
+	Define.
+	(__ASSUME_STAT64_SYSCALL): Define.
+	(__ASSUME_FCNTL64): Define.
+	(__ASSUME_CLONE_THREAD_FLAGS): Define.
+	(__ASSUME_TGKILL): Define.
+	(__ASSUME_UTIMES): Define.
+	(__ASSUME_FADVISE64_64): Define.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies-after: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/mmap.c: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies: New file.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/aarch64/start.S: Add support
 	for ILP32 mode.
 	* ports/sysdeps/aarch64/sysdep.h (PTR_REG): New macro.
