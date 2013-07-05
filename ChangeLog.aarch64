@@ -1,3 +1,14 @@
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/start.S: Add support
+	for ILP32 mode.
+	* ports/sysdeps/aarch64/sysdep.h (PTR_REG): New macro.
+	(PTR_SIZE): New macro.
+	(PTR_LOG_SIZE): New macro.
+	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): Delete.
+	(PTR_SIZE): Remove.
+	(PTR_LOG_SIZE): Remove.
+
 2013-07-04  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/ilp32/Implies: New file.
