@@ -1,5 +1,11 @@
 2013-07-05  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/aarch64/dl-machine.h (elf_machine_load_address): Support
+	ILP32 correctly.
+	(RTLD_START): Add ILP32 version.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/aarch64/bits/link.h (la_aarch64_gnu_pltenter):
 	Fix prototype for ILP32 support.
 	(la_aarch64_gnu_pltexit): Likewise.
