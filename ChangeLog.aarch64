@@ -1,3 +1,7 @@
+2013-07-06  Andrew Pinski  <apinski@cavium.com>
+
+	* config.h.in: Add HAVE_AARCH64_ILP32.
+
 2013-07-05  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/dl-machine.h (elf_machine_load_address): Support

@@ -228,4 +228,7 @@
 /* The ARM hard-float ABI is being used.  */
 #undef HAVE_ARM_PCS_VFP
 
+/* The AARCH64 ILP#@ ABI is being used.  */
+#undef HAVE_AARCH64_ILP32
+
 #endif
