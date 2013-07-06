@@ -1,0 +1,1 @@
+default-abi := ilp32

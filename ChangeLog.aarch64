@@ -1,5 +1,14 @@
 2013-07-06  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/aarch64/bits/wordsize.h: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Makefile: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Makefile: New file.
+	* ports/sysdeps/aarch64/ilp32/Implies: Add aarch64.
+	* ports/sysdeps/aarch64/lp64/Implies: Likewise.
+	* ports/sysdeps/unix/sysv/linux/aarch64/Makefile: Add abi variants.
+
+2013-07-06  Andrew Pinski  <apinski@cavium.com>
+
 	* config.h.in: Add HAVE_AARCH64_ILP32.
 
 2013-07-05  Andrew Pinski  <apinski@cavium.com>
