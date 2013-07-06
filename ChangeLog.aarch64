@@ -1,5 +1,11 @@
 2013-07-05  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/aarch64/bits/link.h (la_aarch64_gnu_pltenter):
+	Fix prototype for ILP32 support.
+	(la_aarch64_gnu_pltexit): Likewise.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/unix/sysv/linux/aarch64/Implies: Delete.
 	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies-after: Delete.
 	* ports/sysdeps/unix/sysv/linux/aarch64/kernel-features.h (__ASSUME_MMAP2_SYSCALL):
