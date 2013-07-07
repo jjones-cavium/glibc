@@ -23,6 +23,7 @@
 
 #include <tls.h>
 #include <dl-tlsdesc.h>
+#include <sysdep.h>
 
 /* Return nonzero iff ELF header is compatible with the running host.  */
 static inline int __attribute__ ((unused))
@@ -57,9 +58,13 @@ elf_machine_load_address (void)
   ElfW(Addr) dynamic_addr;
 
   asm ("					\n\
-	adrp	%1, _dl_start;			\n\
-        add	%1, %1, #:lo12:_dl_start        \n\
-        ldr	%w0, 1f				\n\
+	adrp	%1, _dl_start;			\n"
+#ifdef __LP64__
+"       add	%1, %1, #:lo12:_dl_start        \n"
+#else
+"       add	%w1, %w1, #:lo12:_dl_start      \n"
+#endif
+"       ldr	%w0, 1f				\n\
 	b	2f				\n\
 1:	.word	_dl_start			\n\
 2:						\n\
@@ -122,6 +127,7 @@ elf_machine_runtime_setup (struct link_map *l, int lazy, int profile)
    _dl_start is the real entry point, its return value is the user
    program's entry point */
 
+#ifdef __LP64__
 #define RTLD_START asm ("\
 .text								\n\
 .globl _start							\n\
@@ -184,6 +190,70 @@ _dl_start_user:							\n\
 	// jump to the user_s entry point			\n\
 	br      x21						\n\
 ");
+#else
+#define RTLD_START asm ("\
+.text								\n\
+.globl _start							\n\
+.type _start, %function						\n\
+.globl _dl_start_user						\n\
+.type _dl_start_user, %function					\n\
+_start:								\n\
+	mov	x0,	sp					\n\
+	bl	_dl_start					\n\
+	// returns user entry point in x0			\n\
+	mov	x21, x0						\n\
+_dl_start_user:							\n\
+	// get the original arg count				\n\
+	ldr	w1, [sp]					\n\
+	// get the argv address					\n\
+	add	w2, wsp, #8					\n\
+	// get _dl_skip_args to see if we were			\n\
+	// invoked as an executable				\n\
+	adrp	x4, _dl_skip_args				\n\
+        ldr	w4, [x4, #:lo12:_dl_skip_args]			\n\
+	// do we need to adjust argc/argv			\n\
+        cmp	w4, 0						\n\
+	beq	.L_done_stack_adjust				\n\
+	// subtract _dl_skip_args from original arg count	\n\
+	sub	w1, w1, w4					\n\
+	// store adjusted argc back to stack			\n\
+	str	w1, [sp]					\n\
+	// find the first unskipped argument			\n\
+	mov	w3, w2						\n\
+	add	w4, w2, w4, lsl #2				\n\
+	// shuffle argv down					\n\
+1:	ldr	w5, [x4], #4					\n\
+	str	w5, [x3], #4					\n\
+	cmp	w5, #0						\n\
+	bne	1b						\n\
+	// shuffle envp down					\n\
+1:	ldr	x5, [x4], #4					\n\
+	str	w5, [x3], #4					\n\
+	cmp	w5, #0						\n\
+	bne	1b						\n\
+	// shuffle auxv down					\n\
+1:	ldp	x0, x5, [x4, #16]!				\n\
+	stp	x0, x5, [x3], #16				\n\
+	cmp	x0, #0						\n\
+	bne	1b						\n\
+	// Update _dl_argv					\n\
+	adrp	x3, _dl_argv					\n\
+	str	w2, [x3, #:lo12:_dl_argv]			\n\
+.L_done_stack_adjust:						\n\
+	// compute envp						\n\
+	add	w3, w2, w1, lsl #2				\n\
+	add	w3, w3, #4					\n\
+	adrp	x16, _rtld_local				\n\
+        add	w16, w16, #:lo12:_rtld_local			\n\
+        ldr	w0, [x16]					\n\
+	bl	_dl_init_internal				\n\
+	// load the finalizer function				\n\
+	adrp	x0, _dl_fini					\n\
+	add	w0, w0, #:lo12:_dl_fini				\n\
+	// jump to the user_s entry point			\n\
+	br      x21						\n\
+");
+#endif
 
 #define elf_machine_type_class(type)					\
   ((((type) == R_AARCH64_JUMP_SLOT ||					\

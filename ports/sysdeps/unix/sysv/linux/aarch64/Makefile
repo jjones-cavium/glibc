@@ -16,3 +16,9 @@ endif
 ifeq ($(subdir),stdlib)
 gen-as-const-headers += ucontext_i.sym
 endif
+
+abi-variants := lp64 ilp32
+abi-lp64-options := -D__LP64__
+abi-lp64-condition := __WORDSIZE == 64
+abi-ilp32-options := -U__LP64
+abi-ilp32-condition := __WORDSIZE == 32

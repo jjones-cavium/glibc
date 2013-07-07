@@ -1,3 +1,103 @@
+2013-07-06  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/bits/wordsize.h: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Makefile: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Makefile: New file.
+	* ports/sysdeps/aarch64/ilp32/Implies: Add aarch64.
+	* ports/sysdeps/aarch64/lp64/Implies: Likewise.
+	* ports/sysdeps/unix/sysv/linux/aarch64/Makefile: Add abi variants.
+
+2013-07-06  Andrew Pinski  <apinski@cavium.com>
+
+	* config.h.in: Add HAVE_AARCH64_ILP32.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/dl-machine.h (elf_machine_load_address): Support
+	ILP32 correctly.
+	(RTLD_START): Add ILP32 version.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/bits/link.h (la_aarch64_gnu_pltenter):
+	Fix prototype for ILP32 support.
+	(la_aarch64_gnu_pltexit): Likewise.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/Implies: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies-after: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/kernel-features.h (__ASSUME_MMAP2_SYSCALL):
+	Define.
+	(__ASSUME_STAT64_SYSCALL): Define.
+	(__ASSUME_FCNTL64): Define.
+	(__ASSUME_CLONE_THREAD_FLAGS): Define.
+	(__ASSUME_TGKILL): Define.
+	(__ASSUME_UTIMES): Define.
+	(__ASSUME_FADVISE64_64): Define.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies-after: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/mmap.c: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies: New file.
+
+2013-07-05  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/start.S: Add support
+	for ILP32 mode.
+	* ports/sysdeps/aarch64/sysdep.h (PTR_REG): New macro.
+	(PTR_SIZE): New macro.
+	(PTR_LOG_SIZE): New macro.
+	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): Delete.
+	(PTR_SIZE): Remove.
+	(PTR_LOG_SIZE): Remove.
+
+2013-07-04  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/ilp32/Implies: New file.
+	* ports/sysdeps/aarch64/lp64/Implies: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Implies-after: New file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Implies-after: New file.
+	* ports/sysdeps/aarch64/preconfigure: Set machine based on the options (ilp32 vs lp64).
+	* ports/sysdeps/aarch64/shlib-versions: Set ld.so based on HAVE_AARCH64_ILP32.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure.in: Set slibdir and libdir based
+	on the machine (ilp32 vs lp64).
+	* ports/sysdeps/unix/sysv/linux/aarch64/ldconfig.h (SYSDEP_KNOWN_INTERPRETER_NAMES):
+	Add /lib/ld-linux32-aarch64.so.1 as the known interpreters.
+
+2013-07-01  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/crti.S: Include
+	sysdep.h for the macros.
+
+2013-06-25  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (PTR_REG): New macro.
+	(PTR_SIZE): New macro.
+	(PTR_LOG_SIZE): New macro.
+	* ports/sysdeps/unix/sysv/linux/aarch64/nptl/vfork.S: Use
+	PTR_REG for the subtraction.
+	* ports/sysdeps/unix/sysv/linux/aarch64/nptl/pt-vfork.S:
+	Likewise.
+	* ports/sysdeps/unix/sysv/linux/aarch64/getcontext.S:
+	Likewise.
+	* ports/sysdeps/aarch64/dl-tlsdesc.S: Start to port to ILP32.
+	* ports/sysdeps/aarch64/crti.S: Likewise.
+
+2013-06-25  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/start.S: Update comment about x0.
+	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h: Add support
+	for ILP32.
+
+2013-06-20  Andrew Pinski  <apinski@cavium.com>
+
+	* elf (R_AARCH64_P32_ABS32): New macro.
+        (R_AARCH64_P32_COPY, R_AARCH64_P32_GLOB_DAT, R_AARCH64_P32_JUMP_SLOT): Likewise.
+        (R_AARCH64_P32_RELATIVE, R_AARCH64_P32_TLS_DTPMOD): Likewise.
+        (R_AARCH64_P32_TLS_DTPREL, R_AARCH64_P32_TLS_TPREL): Likewise.
+        (R_AARCH64_P32_TLSDESC): Likewise.
+
 2013-05-21  Andreas Schwab  <schwab@suse.de>
 
 	[BZ #15493]

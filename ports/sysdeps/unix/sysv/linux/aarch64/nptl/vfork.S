@@ -21,7 +21,7 @@
 /* Save the PID value.  */
 #define SAVE_PID                                                              \
         mrs     x2, tpidr_el0;                                                \
-        sub     x2, x2, #PTHREAD_SIZEOF;                                      \
+        sub     PTR_REG(2), PTR_REG(2), #PTHREAD_SIZEOF;                      \
         ldr     w3, [x2, #PTHREAD_PID_OFFSET];                                \
         cmp     w3, #0;                                                       \
         mov     w0, #0x80000000;                                              \

@@ -74,7 +74,7 @@
 	cfi_startproc
 	.align 2
 _dl_tlsdesc_return:
-	ldr	x0, [x0, #8]
+	ldr	PTR_REG(0), [x0, #PTR_SIZE]
 	RET
 	cfi_endproc
 	.size	_dl_tlsdesc_return, .-_dl_tlsdesc_return
@@ -96,9 +96,9 @@ _dl_tlsdesc_return:
 _dl_tlsdesc_undefweak:
 	str	x1, [sp, #-16]!
 	cfi_adjust_cfa_offset(16)
-	ldr	x0, [x0, #8]
+	ldr	PTR_REG(0), [x0, #PTR_SIZE]
 	mrs	x1, tpidr_el0
-	sub	x0, x0, x1
+	sub	PTR_REG(0), PTR_REG(0), PTR_REG(1)
 	ldr	x1, [sp], #16
 	cfi_adjust_cfa_offset(16)
 	RET
@@ -152,9 +152,9 @@ _dl_tlsdesc_dynamic:
 	stp	x3,  x4, [sp, #32+16*1]
 
 	mrs	x4, tpidr_el0
-	ldr	x1, [x0,#8]
+	ldr	PTR_REG(1), [x0,#PTR_SIZE]
 	ldr	x0, [x4]
-	ldr	x3, [x1,#16]
+	ldr	PTR_REG(3), [x1,#16]
 	ldr	x2, [x0]
 	cmp	x3, x2
 	b.hi	2f
