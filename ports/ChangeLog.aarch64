@@ -1,3 +1,7 @@
+2013-07-05  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
+
+	* sysdeps/aarch64/libm-test-ulps: Regenerate.
+
 2013-06-28  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
 
 	* sysdeps/aarch64/dl-machine.h (elf_machine_dynamic): De-reference
