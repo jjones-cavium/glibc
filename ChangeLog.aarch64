@@ -1,5 +1,11 @@
 2013-07-06  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/aarch64/dl-machine.h (elf_machine_load_address):
+	Fix ILP32 where we want to use 16bit relocs so it is resolved at
+	link time.
+
+2013-07-06  Andrew Pinski  <apinski@cavium.com>
+
 	* elf/elf.h (R_AARCH64_TLS_DTPMOD64): Rename based on the new ABI.
 	(R_AARCH64_TLS_DTPREL64): Likewise.
 	(R_AARCH64_TLS_TPREL64 ): Likewise.
