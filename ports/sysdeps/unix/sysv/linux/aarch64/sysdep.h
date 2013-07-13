@@ -326,8 +326,12 @@ __local_syscall_error:						\
   "x7", "x9", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17", "x18"
 
 /* Convert X to a long long, without losing any bits if it is one
-   already or warning if it is a 32-bit pointer.  */
-#define ARGIFY(X) ((long long) (__typeof__ ((X) - (X))) (X))
+   already or warning if it is a 32-bit pointer. This zero extends
+   for both pointers and values which less than 32bits.  */
+#define ARGIFY(X) 				\
+	(__builtin_choose_expr(__builtin_types_compatible_p(__typeof__(X), __typeof__((X) - (X))),	\
+			      (long long)(long)(X),						\
+			      (unsigned long long)(unsigned long)(X)))
 
 # define LOAD_ARGS_0()				\
   register long long _x0 asm ("x0");
