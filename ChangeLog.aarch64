@@ -1,3 +1,10 @@
+2013-07-15  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/dl-trampoline.S (RELA_SIZE): New define.
+	(_dl_runtime_resolve): Support ILP32, using PTR_SIZE and PTR_REG in the correct places.
+	Also use RELA_SIZE<<3 instead of special #192.
+	(_dl_runtime_profile): Likewise.
+
 2013-07-13  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h (AGRIFY):

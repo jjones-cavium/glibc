@@ -25,6 +25,13 @@
 #define ip1 x17
 #define lr  x30
 
+
+#ifdef __LP64__
+#define RELA_SIZE 24
+#else
+#define RELA_SIZE 12
+#endif
+
 	.text
 	.globl _dl_runtime_resolve
 	.type _dl_runtime_resolve, #function
@@ -63,7 +70,7 @@ _dl_runtime_resolve:
 	cfi_rel_offset (x1, 72)
 
 	/* Get pointer to linker struct.  */
-	ldr	x0, [ip0, #-8]
+	ldr	PTR_REG(0), [ip0, #-PTR_SIZE]
 
 	/* Prepare to call _dl_fixup().  */
 	ldr	x1, [sp, 80]	/* Recover &PLTGOT[n] */
@@ -71,7 +78,7 @@ _dl_runtime_resolve:
 	sub     x1, x1, ip0
 	add     x1, x1, x1, lsl #1
 	lsl     x1, x1, #3
-	sub     x1, x1, #192
+	sub     x1, x1, #(RELA_SIZE<<3)
 	lsr     x1, x1, #3
 
 	/* Call fixup routine.  */
@@ -171,7 +178,7 @@ _dl_runtime_profile:
 	stp	x0, x1, [x29, #OFFSET_RG + DL_OFFSET_RG_SP]
 
 	/* Get pointer to linker struct.  */
-	ldr	x0, [ip0, #-8]
+	ldr	PTR_REG(0), [ip0, #-PTR_SIZE]
 
 	/* Prepare to call _dl_profile_fixup().  */
 	ldr	x1, [x29, OFFSET_PLTGOTN]	/* Recover &PLTGOT[n] */
@@ -179,7 +186,7 @@ _dl_runtime_profile:
 	sub     x1, x1, ip0
 	add     x1, x1, x1, lsl #1
 	lsl     x1, x1, #3
-	sub     x1, x1, #192
+	sub     x1, x1, #(RELA_SIZE<<3)
 	lsr     x1, x1, #3
 
 	stp	x0, x1, [x29, #OFFSET_SAVED_CALL_X0]
