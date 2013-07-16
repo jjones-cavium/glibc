@@ -1,3 +1,8 @@
+2013-07-16  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/ioctl.S: Move to ...
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/ioctl.S: Here.
+
 2013-07-15  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/dl-trampoline.S (RELA_SIZE): New define.
