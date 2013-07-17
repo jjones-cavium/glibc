@@ -242,13 +242,13 @@ _dl_tlsdesc_resolve_rela:
 
 	SAVE_Q_REGISTERS
 
-	ldr	x1, [x3, #8]
+	ldr	PTR_REG(1), [x3, #PTR_SIZE]
 	bl	_dl_tlsdesc_resolve_rela_fixup
 
 	RESTORE_Q_REGISTERS
 
 	ldr	x0, [sp, #32+16*8]
-	ldr	x1, [x0]
+	ldr	PTR_REG(1), [x0]
 	blr	x1
 
 	ldp	 x1,  x4, [sp, #32+16*0]
@@ -309,7 +309,7 @@ _dl_tlsdesc_resolve_hold:
 	RESTORE_Q_REGISTERS
 
 	ldr	x0, [sp, #32+16*9]
-	ldr	x1, [x0]
+	ldr	PTR_REG(1), [x0]
 	blr	x1
 
 	ldp	 x1,  x2, [sp, #32+16*0]

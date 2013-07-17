@@ -1,5 +1,11 @@
 2013-07-16  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/aarch64/dl-tlsdesc.S (_dl_tlsdesc_resolve_rela):
+	Fix for ILP32.
+	(_dl_tlsdesc_resolve_hold): Likewise.
+
+2013-07-16  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/unix/sysv/linux/aarch64/ioctl.S: Move to ...
 	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/ioctl.S: Here.
 
