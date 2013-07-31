@@ -47,7 +47,11 @@
 __BEGIN_DECLS
 
 /* Type for a general-purpose register.  */
+#ifdef __LP64__
 typedef unsigned long elf_greg_t;
+#else
+__extension__ typedef unsigned long elf_greg_t;
+#endif
 
 /* And the whole bunch of them.  We could have used `struct
    pt_regs' directly in the typedef, but tradition says that

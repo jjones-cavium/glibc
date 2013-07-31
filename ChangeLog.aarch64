@@ -3,6 +3,11 @@
 	* ports/sysdeps/aarch64/dl-machine.h (_dl_start_user): Fix
 	envp location for ILP32.
 
+2013-07-25  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/sys/procfs.h (elf_greg_t): Define correctly
+	for ILP32.
+
 2013-07-23  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h: New file.
