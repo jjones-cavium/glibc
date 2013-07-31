@@ -224,7 +224,7 @@ _dl_start_user:							\n\
 	// get the original arg count				\n\
 	ldr	w1, [sp]					\n\
 	// get the argv address					\n\
-	add	w2, wsp, #8					\n\
+	add	w2, wsp, #4					\n\
 	// get _dl_skip_args to see if we were			\n\
 	// invoked as an executable				\n\
 	adrp	x4, _dl_skip_args				\n\
