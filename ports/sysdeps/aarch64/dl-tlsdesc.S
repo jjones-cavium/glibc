@@ -153,19 +153,19 @@ _dl_tlsdesc_dynamic:
 
 	mrs	x4, tpidr_el0
 	ldr	PTR_REG(1), [x0,#PTR_SIZE]
-	ldr	x0, [x4]
-	ldr	PTR_REG(3), [x1,#16]
-	ldr	x2, [x0]
+	ldr	PTR_REG(0), [x4]
+	ldr	PTR_REG(3), [x1,#(PTR_SIZE*2)]
+	ldr	PTR_REG(2), [x0]
 	cmp	x3, x2
 	b.hi	2f
-	ldr	x2, [x1]
-	add	x0, x0, x2, lsl #4
-	ldr	x0, [x0]
+	ldr	PTR_REG(2), [x1]
+	add	x0, x0, x2, lsl #(PTR_LOG_SIZE+1)
+	ldr	PTR_REG(0), [x0]
 	cmn	x0, #0x1
 	b.eq	2f
-	ldr	x1, [x1,#8]
-	add	x0, x0, x1
-	sub	x0, x0, x4
+	ldr	PTR_REG(1), [x1,#(PTR_SIZE*2)]
+	add	PTR_REG(0), PTR_REG(0), PTR_REG(1)
+	sub	PTR_REG(0), PTR_REG(0), PTR_REG(4)
 1:
 	ldp	 x1,  x2, [sp, #32+16*0]
 	ldp	 x3,  x4, [sp, #32+16*1]
@@ -196,7 +196,7 @@ _dl_tlsdesc_dynamic:
 	bl	__tls_get_addr
 
 	mrs	x1, tpidr_el0
-	sub	x0, x0, x1
+	sub	PTR_REG(0), PTR_REG(0), PTR_REG(1)
 
 	RESTORE_Q_REGISTERS
 

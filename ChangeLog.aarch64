@@ -1,3 +1,8 @@
+2013-08-04  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/aarch64/dl-tlsdesc.S (_dl_tlsdesc_dynamic): Fix for
+	ILP32.
+
 2013-07-30  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/dl-machine.h (_dl_start_user): Fix
