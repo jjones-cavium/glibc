@@ -30,8 +30,13 @@
 #endif
 
 /* Types used in the structure definition.  */
-typedef unsigned long int msgqnum_t;
-typedef unsigned long int msglen_t;
+typedef __syscall_ulong_t msgqnum_t;
+typedef __syscall_ulong_t msglen_t;
+
+#if !defined(__TIME_T_64_BITS) && __WORDSIZE == 64
+#define __TIME_T_64_BITS
+#endif
+
 
 /* Structure of record for one message inside the kernel.
    The type `struct msg' is opaque.  */
@@ -39,24 +44,24 @@ struct msqid_ds
 {
   struct ipc_perm msg_perm;	/* structure describing operation permission */
   __time_t msg_stime;		/* time of last msgsnd command */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
   unsigned long int __unused1;
 #endif
   __time_t msg_rtime;		/* time of last msgrcv command */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
   unsigned long int __unused2;
 #endif
   __time_t msg_ctime;		/* time of last change */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
   unsigned long int __unused3;
 #endif
-  unsigned long int __msg_cbytes; /* current number of bytes on queue */
+  __syscall_ulong_t __msg_cbytes; /* current number of bytes on queue */
   msgqnum_t msg_qnum;		/* number of messages currently on queue */
   msglen_t msg_qbytes;		/* max number of bytes allowed on queue */
   __pid_t msg_lspid;		/* pid of last msgsnd() */
   __pid_t msg_lrpid;		/* pid of last msgrcv() */
-  unsigned long int __unused4;
-  unsigned long int __unused5;
+  __syscall_ulong_t __unused4;
+  __syscall_ulong_t __unused5;
 };
 
 #ifdef __USE_MISC

@@ -44,8 +44,12 @@ __BEGIN_DECLS
 extern int __getpagesize (void) __THROW __attribute__ ((__const__));
 
 
+#if !defined(__TIME_T_64_BITS) && __WORDSIZE == 64
+#define __TIME_T_64_BITS
+#endif
+
 /* Type to count number of attaches.  */
-typedef unsigned long int shmatt_t;
+typedef __syscall_ulong_t shmatt_t;
 
 /* Data structure describing a shared memory segment.  */
 struct shmid_ds
@@ -53,22 +57,22 @@ struct shmid_ds
     struct ipc_perm shm_perm;		/* operation permission struct */
     size_t shm_segsz;			/* size of segment in bytes */
     __time_t shm_atime;			/* time of last shmat() */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
     unsigned long int __unused1;
 #endif
     __time_t shm_dtime;			/* time of last shmdt() */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
     unsigned long int __unused2;
 #endif
     __time_t shm_ctime;			/* time of last change by shmctl() */
-#if __WORDSIZE == 32
+#ifndef __TIME_T_64_BITS
     unsigned long int __unused3;
 #endif
     __pid_t shm_cpid;			/* pid of creator */
     __pid_t shm_lpid;			/* pid of last shmop */
     shmatt_t shm_nattch;		/* number of current attaches */
-    unsigned long int __unused4;
-    unsigned long int __unused5;
+    __syscall_ulong_t __unused4;
+    __syscall_ulong_t __unused5;
   };
 
 #ifdef __USE_MISC
@@ -85,25 +89,25 @@ struct shmid_ds
 
 struct	shminfo
   {
-    unsigned long int shmmax;
-    unsigned long int shmmin;
-    unsigned long int shmmni;
-    unsigned long int shmseg;
-    unsigned long int shmall;
-    unsigned long int __unused1;
-    unsigned long int __unused2;
-    unsigned long int __unused3;
-    unsigned long int __unused4;
+    __syscall_ulong_t shmmax;
+    __syscall_ulong_t shmmin;
+    __syscall_ulong_t shmmni;
+    __syscall_ulong_t shmseg;
+    __syscall_ulong_t shmall;
+    __syscall_ulong_t __unused1;
+    __syscall_ulong_t __unused2;
+    __syscall_ulong_t __unused3;
+     __syscall_ulong_t __unused4;
   };
 
 struct shm_info
   {
     int used_ids;
-    unsigned long int shm_tot;	/* total allocated shm */
-    unsigned long int shm_rss;	/* total resident shm */
-    unsigned long int shm_swp;	/* total swapped shm */
-    unsigned long int swap_attempts;
-    unsigned long int swap_successes;
+    __syscall_ulong_t shm_tot;	/* total allocated shm */
+    __syscall_ulong_t shm_rss;	/* total resident shm */
+    __syscall_ulong_t shm_swp;	/* total swapped shm */
+    __syscall_ulong_t swap_attempts;
+    __syscall_ulong_t swap_successes;
   };
 
 #endif /* __USE_MISC */

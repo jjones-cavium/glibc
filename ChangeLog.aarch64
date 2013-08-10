@@ -1,5 +1,24 @@
 2013-08-10  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__TIME_T_64_BITS): New define.
+	* ports/sysdeps/unix/sysv/linux/generic/bits/msq.h (msgqnum_t): Change to __syscall_ulong_t.
+	(msglen_t): Likewise.
+	(__TIME_T_64_BITS): Define if we are not already defined or wordsize is 64.
+	(struct msqid_ds): Update #if's to use __TIME_T_64_BITS.
+	Use __syscall_ulong_t instead of unsigned long.
+	* ports/sysdeps/unix/sysv/linux/generic/bits/sem.h
+	(__TIME_T_64_BITS): Define if we are not already defined or wordsize is 64.
+	(struct semid_ds): Update #if's to use __TIME_T_64_BITS.
+	Use __syscall_ulong_t instead of unsigned long.
+	* ports/sysdeps/unix/sysv/linux/generic/bits/shm.h
+	(__TIME_T_64_BITS): Define if we are not already defined or wordsize is 64.
+	(struct shmid_ds): Update #if's to use __TIME_T_64_BITS.
+	Use __syscall_ulong_t instead of unsigned long.
+	(struct shminfo): Use __syscall_ulong_t instead of unsigned long.
+	(struct shm_info): Likewise.
+
+2013-08-10  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__RUSAGE_LONG): New define
 	for ILP32 BE.
 	* sysdeps/unix/sysv/linux/bits/resource.h (__RUSAGE_LONG): New define.

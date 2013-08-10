@@ -84,5 +84,7 @@
       }
 #endif
 
+#define __TIME_T_64_BITS
+
 
 #endif /* bits/typesizes.h */
