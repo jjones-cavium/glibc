@@ -71,5 +71,18 @@
 /* Number of descriptors that can fit in an `fd_set'.  */
 #define	__FD_SETSIZE		1024
 
+#if !defined(__LP64__) && defined(__AARCH64EB__)
+# define __RUSAGE_LONG(__field)			\
+    __extension__ union				\
+      {						\
+	__extension__ struct			\
+	  {					\
+	    long int __##__field##_pad;		\
+	    long int __field;			\
+	  };					\
+	__syscall_slong_t __##__field##_word;	\
+      }
+#endif
+
 
 #endif /* bits/typesizes.h */
