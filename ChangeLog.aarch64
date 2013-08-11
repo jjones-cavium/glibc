@@ -1,3 +1,10 @@
+2013-08-11  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__FSWORD_T_TYPE): Change to
+	be __SYSCALL_SLONG_TYPE.
+	* ports/sysdeps/unix/sysv/linux/generic/bits/statfs.h (statfs): Update to use __fsword_t.
+	(statfs64): Likewise.
+
 2013-08-10  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__TIME_T_64_BITS): New define.
