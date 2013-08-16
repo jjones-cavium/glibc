@@ -1,3 +1,13 @@
+2014-10-31  Manjunath Matti  <mmatti@caviumnetworks.com>
+
+	Backport
+
+	2013-09-11  Will Newton  <will.newton@linaro.org>
+	
+	[BZ #15857]
+	* malloc/malloc.c (__libc_memalign): Check the value of bytes
+	does not overflow.
+
 2014-10-16  Manjunath Matti  <mmatti@caviumnetworks.com>
 
 	Backport for Valgrind.
