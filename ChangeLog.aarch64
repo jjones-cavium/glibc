@@ -1,3 +1,10 @@
+2013-08-16  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/generic/bits/shm.h (struct shmid_ds):
+	Add padding before shm_segsz if requested.
+	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h
+	(__SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS): Define.
+
 2013-08-11  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__FSWORD_T_TYPE): Change to

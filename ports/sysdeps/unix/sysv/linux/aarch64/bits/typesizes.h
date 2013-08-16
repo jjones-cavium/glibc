@@ -71,6 +71,7 @@
 /* Number of descriptors that can fit in an `fd_set'.  */
 #define	__FD_SETSIZE		1024
 
+/* Big-endian ILP32 needs some padding in some cases */
 #if !defined(__LP64__) && defined(__AARCH64EB__)
 # define __RUSAGE_LONG(__field)			\
     __extension__ union				\
@@ -82,6 +83,7 @@
 	  };					\
 	__syscall_slong_t __##__field##_word;	\
       }
+#endif __SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS
 #endif
 
 #define __TIME_T_64_BITS
