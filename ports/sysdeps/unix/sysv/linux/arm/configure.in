@@ -4,6 +4,7 @@ GLIBC_PROVIDES dnl See aclocal.m4 in the top level source directory.
 arch_minimum_kernel=2.6.16
 libc_cv_gcc_unwind_find_fde=no
 CFLAGS=${CFLAGS% -fno-unwind-tables}
+ldd_rewrite_script=$dir/ldd-rewrite.sed
 
 # We check to see if the compiler and flags are
 # selecting the hard-float ABI and if they are then
