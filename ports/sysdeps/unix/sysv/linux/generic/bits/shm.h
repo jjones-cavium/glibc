@@ -57,7 +57,7 @@ struct shmid_ds
     struct ipc_perm shm_perm;		/* operation permission struct */
 #ifdef __SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS
     unsigned long __unused0;
-#ndif
+#endif
     size_t shm_segsz;			/* size of segment in bytes */
     __time_t shm_atime;			/* time of last shmat() */
 #ifndef __TIME_T_64_BITS
