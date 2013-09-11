@@ -1,3 +1,8 @@
+2013-09-10  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/sysdep.h (__local_syscall_error):
+	Fix the store to errno so it is a word (32bit) store.
+
 2013-08-18  Andrew Pinski  <apinski@cavium.com>
 
 	* elf/cache.c (print_entry): Handle FLAG_AARCH64_LIB32.
