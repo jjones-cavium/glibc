@@ -1,3 +1,9 @@
+2013-10-25  Siddhesh Poyarekar  <siddhesh@redhat.com>
+
+	[BZ #16072]
+	* sysdeps/posix/getaddrinfo.c (gethosts): Allocate tmpbuf on
+	heap for large requests.
+
 2013-09-23  Siddhesh Poyarekar  <siddhesh@redhat.com>
 
 	[BZ #14547]
