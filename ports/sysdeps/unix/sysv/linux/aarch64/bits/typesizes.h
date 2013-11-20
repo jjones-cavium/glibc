@@ -89,4 +89,14 @@
 #define __TIME_T_64_BITS
 
 
+#ifndef __LP64__
+/* si_utime and si_stime must be 4 byte aligned for ILP32 to match the
+   kernel.  We align siginfo_t to 8 bytes so that si_utime and si_stime
+   are actually aligned to 8 bytes since their offsets are multiple of
+   8 bytes.  */
+#  define __SI_ALIGNMENT __attribute__ ((__aligned__ (8)))
+#  define __SIGCHLD_CLOCK_T __CLOCK_T_TYPE __attribute__ ((__aligned__ (4)))
+#endif
+
+
 #endif /* bits/typesizes.h */

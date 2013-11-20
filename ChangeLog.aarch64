@@ -1,3 +1,15 @@
+2013-11-20  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__SI_ALIGNMENT):
+	Define for ILP32.
+	(__SIGCHLD_CLOCK_T): Likewise.
+	* sysdeps/unix/sysv/linux/bits/siginfo.h (__SI_ALIGNMENT): Define to empty if
+	not defined.
+	(__SIGCHLD_CLOCK_T): Define to __CLOCK_T_TYPE if not defined.
+	(__sigchld_clock_t): New typedef.
+	(siginfo_t): Use __sigchld_clock_t instead of __clock_t and add __SI_ALIGNMENT
+	to the end.
+
 2013-09-30  Petr Machata  <pmachata@redhat.com>
 
 	* elf/elf.h (R_AARCH64_ABS16): New macro.

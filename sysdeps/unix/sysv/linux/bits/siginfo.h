@@ -47,6 +47,16 @@ typedef union sigval
 #  define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 3)
 # endif
 
+#ifndef __SI_ALIGNMENT
+#define __SI_ALIGNMENT
+#endif
+
+#ifndef __SIGCHLD_CLOCK_T
+#define __SIGCHLD_CLOCK_T __CLOCK_T_TYPE 
+#endif
+
+typedef __SIGCHLD_CLOCK_T __sigchld_clock_t;
+
 typedef struct
   {
     int si_signo;		/* Signal number.  */
@@ -87,8 +97,8 @@ typedef struct
 	    __pid_t si_pid;	/* Which child.  */
 	    __uid_t si_uid;	/* Real user ID of sending process.  */
 	    int si_status;	/* Exit value or signal.  */
-	    __clock_t si_utime;
-	    __clock_t si_stime;
+	    __sigchld_clock_t si_utime;
+	    __sigchld_clock_t si_stime;
 	  } _sigchld;
 
 	/* SIGILL, SIGFPE, SIGSEGV, SIGBUS.  */
@@ -104,7 +114,7 @@ typedef struct
 	    int si_fd;
 	  } _sigpoll;
       } _sifields;
-  } siginfo_t;
+  } siginfo_t __SI_ALIGNMENT;
 
 
 /* X/Open requires some more fields with fixed names.  */
