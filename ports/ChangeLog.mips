@@ -1,3 +1,7 @@
+2013-11-14  Steve Ellcey  <sellcey@mips.com>
+
+        * sysdeps/mips/strcmp.c: New.
+
 2013-11-26  Andrew Pinski  <apinski@cavium.com>
 
 	Revert:
