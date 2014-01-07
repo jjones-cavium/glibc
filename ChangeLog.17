@@ -1,3 +1,7 @@
+2014-01-06  Naveen H.S  <Naveen.Hurugalawadi@caviumnetworks.com>
+	
+	* csu/libc-start.c: Add definition for pointer_chk_guard_local.
+
 2010-05-04  Andreas Schwab  <schwab@redhat.com>
 
 	* posix/regexec.c (find_collation_sequence_value): Fix skipping

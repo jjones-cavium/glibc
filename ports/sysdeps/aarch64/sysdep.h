@@ -88,6 +88,30 @@
 # define L(name)         .L##name
 #endif
 
+/* Load or store to/from a pc-relative EXPR into/from R, using T.  */
+#ifdef __LP64__
+#define LDST_PCREL(OP, R, R32, T, EXPR)  \
+	adrp	T, EXPR;    \
+	OP	R, [T, #:lo12:EXPR];
+#else
+#define LDST_PCREL(OP,  R, R32, T, EXPR)  \
+	adrp	T, EXPR;     \
+	OP	R32, [T, #:lo12:EXPR];
+#endif
+
+/* Load or store to/from a got-relative EXPR into/from R, using T.  */
+#ifdef __LP64__         
+#define LDST_GLOBAL(OP, R, T, T32, EXPR) \
+	adrp	T, :got:EXPR; \
+	ldr	T, [T, #:got_lo12:EXPR];\
+	OP	R, [T];
+#else
+#define LDST_GLOBAL(OP, R, T, T32, EXPR)     \
+	adrp	T, :got:EXPR; \
+	ldr	T32, [T, #:got_lo12:EXPR];\
+	OP	R, [T];
+#endif
+
 /* Since C identifiers are not normally prefixed with an underscore
    on this system, the asm identifier `syscall_error' intrudes on the
    C name space.  Make sure we use an innocuous name.  */
