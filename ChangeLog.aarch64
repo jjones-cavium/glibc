@@ -1,3 +1,27 @@
+2014-01-20  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
+            Naveen H.S  <Naveen.Hurugalawadi@caviumnetworks.com>
+            Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/aarch64/shlib-versions: Define ld-linux-aarch64_be.so.1
+	and ld-linux32-aarch64_be.so.1.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure.in:
+	Add check for big-endian.  Create a new default-abi.make file.
+	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.
+	* sysdeps/unix/sysv/linux/aarch64/Makefile:
+	Include $(common-objpfx)default-abi.make for the default-abi.
+	(abi-variants): Include lp64_be and ilp32_be.
+	(abi-lp64-options, abi-lp64-condition, abi-lp64-ld-soname)
+	(abi-lp64_be-options, abi-lp64_be-condition)
+	(abi-lp64_be-ld-soname): Define.
+	(abi-ilp32-options, abi-ilp32-condition, abi-ilp32-ld-soname)
+	(abi-ilp32_be-options, abi-ilp32_be-condition)
+	(abi-ilp32_be-ld-soname): Define.
+	* sysdeps/unix/sysv/linux/aarch64/ldconfig.h
+	(SYSDEP_KNOWN_INTERPRETER_NAMES): Add ld-linux-aarch64_be.so.1
+	and ld-linux32-aarch64_be.so.1.
+	* ports/sysdeps/unix/sysv/linux/aarch64/lp64/Makefile: Delete.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ilp32/Makefile: Delete.
+
 2014-01-06  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/aarch64/dl-trampoline.S (_dl_runtime_resolve): Fix up first
