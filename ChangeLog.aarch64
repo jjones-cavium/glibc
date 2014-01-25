@@ -1,3 +1,11 @@
+2014-01-24  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/aarch64/shlib-versions: Rename ld-linux32-aarch64_be.so.1
+	to ld-linux-aarch64_be_ilp32.so.1 and ld-linux32-aarch64.so.1 to
+	ld-linux-aarch64_ilp32.so.1.
+	* ports/sysdeps/unix/sysv/linux/aarch64/Makefile: Likewise.
+	* ports/sysdeps/unix/sysv/linux/aarch64/ldconfig.h: Likewise.
+
 2014-01-20  Marcus Shawcroft  <marcus.shawcroft@linaro.org>
             Naveen H.S  <Naveen.Hurugalawadi@caviumnetworks.com>
             Andrew Pinski  <apinski@cavium.com>
