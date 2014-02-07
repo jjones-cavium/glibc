@@ -9,10 +9,10 @@ case "$prefix" in
   /usr | /usr/)
     case $machine in
     aarch64/ilp32)
-      slibdir="/lib32"
+      slibdir="/libilp32"
       AC_DEFINE(HAVE_AARCH64_ILP32)
       if test "$libdir" = '${exec_prefix}/lib'; then
-        libdir='${exec_prefix}/lib32';
+        libdir='${exec_prefix}/libilp32';
         # Locale data can be shared between 32bit and 64bit libraries
         libc_cv_localedir='${exec_prefix}/lib/locale'
       fi

@@ -31,19 +31,22 @@
   do								\
     {								\
       size_t len = strlen (dir);				\
-      char path[len + 3];					\
+      char path[len + 6];					\
       memcpy (path, dir, len + 1);				\
-      if (len >= 6						\
-	  && (! memcmp (path + len - 6, "/lib64", 6)		\
-	      || ! memcmp (path + len - 6, "/lib32", 6)))	\
+      if (len >= 6 && ! memcmp (path + len - 6, "/lib64", 6))	\
 	{							\
 	  len -= 2;						\
+	  path[len] = '\0';					\
+	}							\
+      if (len >= 9 && ! memcmp (path + len - 9, "/libilp32", 9))\
+	{							\
+	  len -= 5;						\
 	  path[len] = '\0';					\
 	}							\
       add_dir (path);						\
       if (len >= 4 && ! memcmp (path + len - 4, "/lib", 4))	\
 	{							\
-	  memcpy (path + len, "32", 3);				\
+	  memcpy (path + len, "ilp32", 6);			\
 	  add_dir (path);					\
 	  memcpy (path + len, "64", 3);				\
 	  add_dir (path);					\
