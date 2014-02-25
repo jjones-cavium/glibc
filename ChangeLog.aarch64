@@ -1,3 +1,8 @@
+2014-02-24  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__SSIZE_T_TYPE):
+	Fix to be always signed long.
+
 2014-02-07  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.
