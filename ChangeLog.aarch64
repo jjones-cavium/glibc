@@ -14,6 +14,13 @@
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__SSIZE_T_TYPE):
 	Fix to be always signed long.
 
+2014-02-11  Marcus Shawcroft  <marcus.shawcroft@arm.com>
+
+       * sysdeps/aarch64: Move directory from ports/sysdeps/aarch64.
+       * sysdeps/unix/sysv/linux/aarch64: Move directory from
+       ports/sysdeps/unix/sysv/linux/aarch64.
+       * README: Update listing for aarch64*-*-linux-gnu.
+
 2014-02-07  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/configure: Regenerate.

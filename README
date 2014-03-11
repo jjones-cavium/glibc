@@ -35,6 +35,7 @@ installed for the pthread library to work correctly.
 
 The GNU C Library supports these configurations for using Linux kernels:
 
+	aarch64*-*-linux-gnu
 	i[4567]86-*-linux-gnu
 	x86_64-*-linux-gnu	Can build either x86_64 or x32
 	powerpc-*-linux-gnu	Hardware floating point required
