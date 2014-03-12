@@ -1,5 +1,12 @@
 2014-03-11  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/preadv64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/pwritev64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (pwritev): Add.
+	(preadv): Add.
+
+2014-03-11  Andrew Pinski  <apinski@cavium.com>
+
 	* ports/sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__OFF_T_TYPE): Define to be
 	__SYSCALL_SLONG_TYPE.
 

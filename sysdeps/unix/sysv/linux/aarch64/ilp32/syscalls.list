@@ -2,3 +2,5 @@
 
 truncate	-	truncate64	i:si	truncate	__truncate truncate64
 ftruncate	-	ftruncate64	i:ii	__ftruncate	ftruncate ftruncate64 __ftruncate64
+preadv		-	preadv		Ci:ipii	preadv		preadv64
+pwritev		-	pwritev		Ci:ipii	pwritev		pwritev64
