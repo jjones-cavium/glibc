@@ -4,3 +4,5 @@ truncate	-	truncate64	i:si	truncate	__truncate truncate64
 ftruncate	-	ftruncate64	i:ii	__ftruncate	ftruncate ftruncate64 __ftruncate64
 preadv		-	preadv		Ci:ipii	preadv		preadv64
 pwritev		-	pwritev		Ci:ipii	pwritev		pwritev64
+pread		-	pread64		Ci:ibni	__libc_pread	__libc_pread64 __pread pread __pread64 pread64
+pwrite		-	pwrite64	Ci:ibni	__libc_pwrite	__libc_pwrite64 __pwrite pwrite __pwrite64 pwrite64

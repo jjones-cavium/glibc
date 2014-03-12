@@ -1,3 +1,10 @@
+2014-03-12  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/pread64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/pwrite64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (pread): Add
+	(pwrite): Add.
+
 2014-03-11  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/preadv64.c: New file.
