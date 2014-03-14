@@ -1,3 +1,8 @@
+2014-03-13  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/sendfile64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (sendfile): Add.
+
 2014-03-12  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/getrlimit64.c: New file.
@@ -5,8 +10,8 @@
 	* sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__RLIM_T_TYPE): Change to be
 	__SYSCALL_ULONG_TYPE.
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (readahead): Add.
-	(getrlimit): Add
-	(setrlimit): Add
+	(getrlimit): Add.
+	(setrlimit): Add.
 
 2014-03-12  Andrew Pinski  <apinski@cavium.com>
 
