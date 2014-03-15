@@ -1,5 +1,10 @@
 2014-03-13  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h
+	(__OFF_T_MATCHES_OFF64_T): Define to true always.
+
+2014-03-13  Andrew Pinski  <apinski@cavium.com>
+
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/sendfile64.c: New file.
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (sendfile): Add.
 
