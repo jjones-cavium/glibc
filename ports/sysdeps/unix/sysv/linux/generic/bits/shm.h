@@ -55,10 +55,7 @@ typedef __syscall_ulong_t shmatt_t;
 struct shmid_ds
   {
     struct ipc_perm shm_perm;		/* operation permission struct */
-#ifdef __SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS
-    unsigned long __unused0;
-#endif
-    size_t shm_segsz;			/* size of segment in bytes */
+    __syscall_ulong_t shm_segsz;	/* size of segment in bytes */
     __time_t shm_atime;			/* time of last shmat() */
 #ifndef __TIME_T_64_BITS
     unsigned long int __unused1;
@@ -100,7 +97,7 @@ struct	shminfo
     __syscall_ulong_t __unused1;
     __syscall_ulong_t __unused2;
     __syscall_ulong_t __unused3;
-     __syscall_ulong_t __unused4;
+    __syscall_ulong_t __unused4;
   };
 
 struct shm_info

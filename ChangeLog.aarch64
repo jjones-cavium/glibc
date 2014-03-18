@@ -1,5 +1,10 @@
 2014-03-17  Andrew Pinski  <apinski@cavium.com>
 
+	* ports/sysdeps/unix/sysv/linux/generic/bits/shm.h (shmid_ds): Change size_t to be
+	__syscall_ulong_t.
+
+2014-03-17  Andrew Pinski  <apinski@cavium.com>
+
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (sync_file_range): Add.
 
 2014-03-17  Andrew Pinski  <apinski@cavium.com>
