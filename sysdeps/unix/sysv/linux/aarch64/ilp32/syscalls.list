@@ -13,3 +13,4 @@ prlimit		EXTRA	prlimit64	i:iipp	prlimit
 sendfile	-	sendfile64	i:iipi	sendfile	sendfile64
 llseek		-	llseek		Ci:iii	__libc_lseek	__lseek lseek __libc_lseek64 __llseek llseek __lseek64 lseek64
 lseek		llseek	-
+sync_file_range	-	sync_file_range	Ci:iiii	sync_file_range
