@@ -8,6 +8,11 @@
 
 	* ports/sysdeps/unix/sysv/linux/aarch64/ldd-rewrite.sed: Fix for the new names of ld.so.
 
+2014-03-18  Will Newton  <will.newton@linaro.org>
+
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.h: Remove
+	inaccurate comment.
+
 2014-03-17  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/generic/bits/shm.h (shmid_ds): Change size_t to be
