@@ -1,3 +1,7 @@
+2014-03-27  Andrew Pinski  <apinski@cavium.com>
+
+	* elf/sotruss.ksh: Convert to standard Borne function syntax.
+
 2013-08-16  Manjunath Matti  <mmatti@caviumnetworks.com>
             Andrew Pinski  <apinski@cavium.com>
 
