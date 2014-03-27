@@ -1,5 +1,6 @@
 2014-03-24  Andrew Pinski  <apinski@cavium.com>
 
+	Bug #9579
 	* ports/sysdeps/unix/sysv/linux/aarch64/ldd-rewrite.sed: Add /lib/ld-linux-armhf.so.3 to the
 	RTLDLIST so that a sysroot for both aarch32 and aarch64 can be combined together.
 
