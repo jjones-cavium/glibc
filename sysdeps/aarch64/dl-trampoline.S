@@ -22,6 +22,11 @@
 #include "dl-link.h"
 
 #define ip0 x16
+#ifdef __LP64__
+#define ip0l x16
+#else
+#define ip0l w16
+#endif
 #define ip1 x17
 #define lr  x30
 
@@ -214,11 +219,11 @@ _dl_runtime_profile:
 	/* Set up extra args for _dl_profile_fixup */
 	ldr	x2, [x29, #OFFSET_LR]		/* load saved LR */
 	add	x3, x29, #OFFSET_RG		/* address of La_aarch64_reg */
-	add	x4, x29, #OFFSET_FS		/* address of framesize */
+	add	x4, x29, #OFFSET_FS		/* address of framesize: 32bit with ILP32 */
 	bl	_dl_profile_fixup
 
-	ldr	ip0, [x29, #OFFSET_FS]		/* framesize == 0 */
-	cmp	ip0, #0
+	ldr	ip0l, [x29, #OFFSET_FS]		/* framesize == 0 */
+	cmp	ip0l, #0
 	bge	1f
 	cfi_remember_state
 
@@ -250,7 +255,7 @@ _dl_runtime_profile:
 1:
 	/* The new frame size is in ip0.  */
 
-	sub	x1, x29, ip0
+	sub	PTR_REG(1), PTR_REG(29), ip0l
 	and	sp, x1, #0xfffffffffffffff0
 
 	str	x0, [x29, #OFFSET_T1]

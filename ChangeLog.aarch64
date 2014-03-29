@@ -1,3 +1,9 @@
+2014-03-29  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #9986
+	* sysdeps/aarch64/dl-trampoline.S (ip0l): New macro.
+	(_dl_runtime_profile): Fix up loading of the new frame size.
+
 2014-03-28  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/aarch64/nptl/tls.h (TLS_INIT_TCB_ALIGN): Define based on pthread instead.
