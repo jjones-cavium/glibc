@@ -16,7 +16,16 @@
    License along with the GNU C Library; if not, see
    <http://www.gnu.org/licenses/>.  */
 
+#ifndef _AARCH64_SYSDEP_H
+#define _AARCH64_SYSDEP_H
+
 #include <sysdeps/generic/sysdep.h>
+
+#ifdef __LP64__
+#define AARCH64_R(NAME)		R_AARCH64_ ## NAME
+#else
+#define AARCH64_R(NAME)		R_AARCH64_P32_ ## NAME
+#endif
 
 #ifdef	__ASSEMBLER__
 
@@ -29,7 +38,9 @@
 #define PTR_REG(n)	w##n
 #define PTR_SIZE	4
 #define PTR_LOG_SIZE	2
+#define AARCH64_R(NAME)		R_AARCH64_P32_ ## NAME
 #endif
+
 /* Syntactic details of assembler.  */
 
 #define ASM_SIZE_DIRECTIVE(name) .size name,.-name
@@ -119,3 +130,6 @@
 #define mcount		_mcount
 
 #endif	/* __ASSEMBLER__ */
+
+
+#endif

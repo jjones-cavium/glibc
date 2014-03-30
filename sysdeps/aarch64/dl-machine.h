@@ -26,12 +26,6 @@
 #include <sysdep.h>
 #include <dl-irel.h>
 
-#ifdef __LP64__
-#define AARCH64_R(NAME)		R_AARCH64_ ## NAME
-#else
-#define AARCH64_R(NAME)		R_AARCH64_P32_ ## NAME
-#endif
-
 /* Return nonzero iff ELF header is compatible with the running host.  */
 static inline int __attribute__ ((unused))
 elf_machine_matches_host (const ElfW(Ehdr) *ehdr)
@@ -429,7 +423,7 @@ elf_machine_rela (struct link_map *map, const ElfW(Rela) *reloc,
 	    }
 	  break;
 
-	case R_AARCH64_IRELATIVE:
+	case AARCH64_R (IRELATIVE):
 	  value = map->l_addr + reloc->r_addend;
 	  value = elf_ifunc_invoke (value);
 	  *reloc_addr = value;
@@ -478,7 +472,7 @@ elf_machine_lazy_rel (struct link_map *map,
       td->entry = (void*)(D_PTR (map, l_info[ADDRIDX (DT_TLSDESC_PLT)])
 			  + map->l_addr);
     }
-  else if (__glibc_unlikely (r_type == R_AARCH64_IRELATIVE))
+  else if (__glibc_unlikely (r_type == AARCH64_R (IRELATIVE)))
     {
       ElfW(Addr) value = map->l_addr + reloc->r_addend;
       if (__glibc_likely (!skip_ifunc))

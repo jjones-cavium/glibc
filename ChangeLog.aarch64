@@ -1,5 +1,17 @@
 2014-03-29  Andrew Pinski  <apinski@cavium.com>
 
+	Bug #9988
+	* elf/elf.h (R_AARCH64_P32_IRELATIVE): Define.
+	* dl-irel.h: Include sysdep.h
+	(elf_irela): Support ILP32 version of IRELATIVE.
+	* dl-machine.h (AARCH64_R): Delete.
+	(elf_machine_rela): Support ILP32 version of IRELATIVE.
+	(elf_machine_lazy_rel): Likewise.
+	* sysdeps/aarch64/sysdep.h: Add include header guards.
+	(AARCH64_R): Define.
+
+2014-03-29  Andrew Pinski  <apinski@cavium.com>
+
 	Bug #9986
 	* sysdeps/aarch64/dl-trampoline.S (ip0l): New macro.
 	(_dl_runtime_profile): Fix up loading of the new frame size.

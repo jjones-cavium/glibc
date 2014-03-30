@@ -2312,6 +2312,7 @@ typedef Elf32_Addr Elf32_Conflict;
 #define R_AARCH64_P32_TLS_DTPREL 	185	/* Module-relative offset, 32 bit.  */
 #define R_AARCH64_P32_TLS_TPREL  	186	/* TP-relative offset, 32 bit.  */
 #define R_AARCH64_P32_TLSDESC      	187	/* TLS Descriptor.  */
+#define R_AARCH64_P32_IRELATIVE		188	/* STT_GNU_IFUNC relocation. */
 
 /* LP64 AARCH64 relocs. */
 #define R_AARCH64_ABS64         257	/* Direct 64 bit. */
