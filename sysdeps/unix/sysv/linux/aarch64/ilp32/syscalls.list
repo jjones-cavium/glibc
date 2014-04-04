@@ -20,3 +20,6 @@ lseek		llseek	-
 sync_file_range	-	sync_file_range	Ci:iiii	sync_file_range
 # FIXME: this really should be mmap but unistd.h is incorrect.
 mmap		-	mmap2		b:aniiii	__mmap		mmap __mmap64 mmap64
+# FIXME: this really should be fadvise64 but unistd.h is incorrect.
+posix_fadvise   -       fadvise64_64       Vi:iiii posix_fadvise   posix_fadvise64
+

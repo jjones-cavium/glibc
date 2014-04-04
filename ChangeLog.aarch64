@@ -1,3 +1,7 @@
+2014-04-04  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (posix_fadvise): Add.
+
 2014-04-03  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/mmap64.c: New file.
