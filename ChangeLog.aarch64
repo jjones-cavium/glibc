@@ -1,3 +1,9 @@
+2014-04-03  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/mmap64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (mmap): Add for now until mmap2 gets renamed to mmap.
+	Add other FIXME comments about the other system calls which will be renamed.
+
 2014-04-01  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/fallocate.c: New file.
