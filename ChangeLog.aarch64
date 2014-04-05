@@ -1,5 +1,14 @@
 2014-04-04  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (fstatfs): New.
+	(statfs): New.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/statvfs.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/statvfs64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/fstatfs64.c: New file.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/statfs64.c: New file.
+
+2014-04-04  Andrew Pinski  <apinski@cavium.com>
+
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (posix_fadvise): Add.
 
 2014-04-03  Andrew Pinski  <apinski@cavium.com>

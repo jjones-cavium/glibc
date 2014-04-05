@@ -22,4 +22,7 @@ sync_file_range	-	sync_file_range	Ci:iiii	sync_file_range
 mmap		-	mmap2		b:aniiii	__mmap		mmap __mmap64 mmap64
 # FIXME: this really should be fadvise64 but unistd.h is incorrect.
 posix_fadvise   -       fadvise64_64       Vi:iiii posix_fadvise   posix_fadvise64
-
+# FIXME: this really should be fstatfs but unistd.h is incorrect.
+fstatfs		-	fstatfs64		i:ip	__fstatfs	fstatfs fstatfs64 __fstatfs64
+# FIXME: this really should be statfs but unistd.h is incorrect.
+statfs		-	statfs64		i:sp	__statfs	statfs statfs64
