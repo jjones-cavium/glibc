@@ -1,9 +1,7 @@
 # File name	Caller	Syscall name	# args	Strong name	Weak names
 
-# FIXME: this really should be truncate but unistd.h is incorrect.
-truncate	-	truncate64	i:si	truncate	__truncate truncate64
-# FIXME: this really should be ftruncate but unistd.h is incorrect.
-ftruncate	-	ftruncate64	i:ii	__ftruncate	ftruncate ftruncate64 __ftruncate64
+truncate	-	truncate	i:si	truncate	__truncate truncate64
+ftruncate	-	ftruncate	i:ii	__ftruncate	ftruncate ftruncate64 __ftruncate64
 preadv		-	preadv		Ci:ipii	preadv		preadv64
 pwritev		-	pwritev		Ci:ipii	pwritev		pwritev64
 pread		-	pread64		Ci:ibni	__libc_pread	__libc_pread64 __pread pread __pread64 pread64
@@ -12,17 +10,12 @@ readahead	-	readahead	i:iii	__readahead	readahead
 getrlimit	-	getrlimit	i:ip	__getrlimit	getrlimit getrlimit64
 setrlimit	-	setrlimit	i:ip	__setrlimit	setrlimit setrlimit64
 prlimit		EXTRA	prlimit64	i:iipp	prlimit		
-# FIXME: this really should be sendfile but unistd.h is incorrect.
-sendfile	-	sendfile64	i:iipi	sendfile	sendfile64
-# FIXME: this really should be lseek but unistd.h is incorrect.
-llseek		-	llseek		Ci:iii	__libc_lseek	__lseek lseek __libc_lseek64 __llseek llseek __lseek64 lseek64
-lseek		llseek	-
+sendfile	-	sendfile	i:iipi	sendfile	sendfile64
+lseek		-	lseek		Ci:iii	__libc_lseek	__lseek lseek __llseek llseek __libc_lseek64 __lseek64 lseek64
 sync_file_range	-	sync_file_range	Ci:iiii	sync_file_range
-# FIXME: this really should be mmap but unistd.h is incorrect.
-mmap		-	mmap2		b:aniiii	__mmap		mmap __mmap64 mmap64
-# FIXME: this really should be fadvise64 but unistd.h is incorrect.
-posix_fadvise   -       fadvise64_64       Vi:iiii posix_fadvise   posix_fadvise64
-# FIXME: this really should be fstatfs but unistd.h is incorrect.
-fstatfs		-	fstatfs64		i:ip	__fstatfs	fstatfs fstatfs64 __fstatfs64
-# FIXME: this really should be statfs but unistd.h is incorrect.
-statfs		-	statfs64		i:sp	__statfs	statfs statfs64
+mmap		-	mmap		b:aniiii	__mmap		mmap __mmap64 mmap64
+posix_fadvise   -       fadvise64       Vi:iiii posix_fadvise   posix_fadvise64
+fstatfs		-	fstatfs		i:ip	__fstatfs	fstatfs fstatfs64 __fstatfs64
+statfs		-	statfs		i:sp	__statfs	statfs statfs64 __statfs64
+fanotify_mark	EXTRA	fanotify_mark	i:iiiiis	fanotify_mark
+

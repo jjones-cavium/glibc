@@ -1,3 +1,28 @@
+2014-04-08  Andrew Pinski  <apinski@cavium.com>
+
+	* ports/sysdeps/unix/sysv/linux/generic/kernel_stat.h (XSTAT_IS_XSTAT64): Define also
+	if __STATFS_MATCHES_STATFS64_TYPE is defined.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/fxstat.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/fxstat64.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/fxstatat.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/fxstatat64.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/llseek.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/lxstat64.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/xstat.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/xstat64.c: New file
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/Implies: Remove wordsize-32.
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (truncate): Change syscall name
+	to truncate.
+	(ftruncate): Change syscall name to ftruncate.
+	(sendfile): Change syscall name to sendfile.
+	(llseek): Delete.
+	(lseek): Change to be the default one.
+	(mmap): Change syscall name to mmap.
+	(posix_fadvise): fadvise64.
+	(fstatfs): Change syscall name to fstatfs.
+	(statfs): Change syscall name to statfs.
+	(fanotify_mark): Add.
+
 2014-04-04  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/syscalls.list (fstatfs): New.

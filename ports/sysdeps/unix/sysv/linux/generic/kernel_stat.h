@@ -21,6 +21,6 @@
 #define STAT_IS_KERNEL_STAT 1
 
 /* We provide separate 32-bit API versions that check for EOVERFLOW. */
-#if __WORDSIZE == 64
+#if __WORDSIZE == 64 || defined(__STATFS_MATCHES_STATFS64_TYPE)
 # define XSTAT_IS_XSTAT64 1
 #endif
