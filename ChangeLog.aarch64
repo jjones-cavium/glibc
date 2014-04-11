@@ -1,3 +1,8 @@
+2014-04-11  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #10170
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/Versions: New file.
+
 2014-04-08  Andrew Pinski  <apinski@cavium.com>
 
 	* ports/sysdeps/unix/sysv/linux/generic/kernel_stat.h (XSTAT_IS_XSTAT64): Define also
