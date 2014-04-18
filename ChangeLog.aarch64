@@ -1,5 +1,10 @@
 2014-04-18  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/aarch64/bits/wordsize.h (__WORDSIZE_TIME64_COMPAT32): Define
+	unconditionally.
+
+2014-04-18  Andrew Pinski  <apinski@cavium.com>
+
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/posix_fadvise64.c: New file.
 
 2014-04-18  Andrew Pinski  <apinski@cavium.com>
