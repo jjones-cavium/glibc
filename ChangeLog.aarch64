@@ -1,5 +1,9 @@
 2014-04-18  Andrew Pinski  <apinski@cavium.com>
 
+	* sysdeps/unix/sysv/linux/aarch64/ilp32/dl-fxstatat64.c: New file.
+
+2014-04-18  Andrew Pinski  <apinski@cavium.com>
+
 	* sysdeps/unix/sysv/linux/aarch64/sigcontextinfo.h: Add include of stdint.h.
 
 2014-04-18  Andrew Pinski  <apinski@cavium.com>
