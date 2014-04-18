@@ -18,6 +18,7 @@
 
 #include <sys/ucontext.h>
 #include "kernel-features.h"
+#include <stdint.h>
 
 #define SIGCONTEXT siginfo_t *_si, struct ucontext *
 #define GET_PC(ctx) ((void *) (uintptr_t) (ctx)->uc_mcontext.pc)
