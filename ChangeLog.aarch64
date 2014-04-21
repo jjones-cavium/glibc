@@ -1,3 +1,10 @@
+2014-04-17  Will Newton  <will.newton@linaro.org>
+
+	[BZ #16629]
+	* sysdeps/unix/sysv/linux/aarch64/setcontext.S (__setcontext):
+	Re-implement to restore registers in user code and avoid
+	rt_sigreturn system call.
+
 2014-04-16  Ian Bolton  <ian.bolton@arm.com>
 	    Wilco Dijkstra  <wilco.dijkstra@arm.com>
 
