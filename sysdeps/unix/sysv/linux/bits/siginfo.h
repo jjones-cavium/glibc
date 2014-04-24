@@ -23,6 +23,14 @@
 
 #include <bits/wordsize.h>
 
+#ifndef __SIGINFO_VOIDPOINTER
+#define __SIGINFO_VOIDPOINTER(field) void *field
+#endif
+
+#ifndef __SIGINFO_BAND
+#define __SIGINFO_BAND(field) long field
+#endif
+
 #if (!defined __have_sigval_t \
      && (defined _SIGNAL_H || defined __need_siginfo_t \
 	 || defined __need_sigevent_t))
@@ -32,7 +40,7 @@
 typedef union sigval
   {
     int sival_int;
-    void *sival_ptr;
+    __SIGINFO_VOIDPOINTER (sival_ptr);
   } sigval_t;
 #endif
 
@@ -41,10 +49,13 @@ typedef union sigval
 # define __have_siginfo_t	1
 
 # define __SI_MAX_SIZE     128
-# if __WORDSIZE == 64
-#  define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 4)
+
+# ifndef __SI_PAD_SIZE
+#  if __WORDSIZE == 64
+#   define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 4)
 # else
-#  define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 3)
+#   define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 3)
+#  endif
 # endif
 
 #ifndef __SI_ALIGNMENT
@@ -104,13 +115,13 @@ typedef struct
 	/* SIGILL, SIGFPE, SIGSEGV, SIGBUS.  */
 	struct
 	  {
-	    void *si_addr;	/* Faulting insn/memory ref.  */
+	    __SIGINFO_VOIDPOINTER (si_addr);	/* Faulting insn/memory ref.  */
 	  } _sigfault;
 
 	/* SIGPOLL.  */
 	struct
 	  {
-	    long int si_band;	/* Band event for SIGPOLL.  */
+	    __SIGINFO_BAND (si_band);	/* Band event for SIGPOLL.  */
 	    int si_fd;
 	  } _sigpoll;
       } _sifields;
@@ -299,6 +310,7 @@ typedef struct sigevent
 	   thread to receive the signal.  */
 	__pid_t _tid;
 
+	/* Note these two are handled only in userspace. */
 	struct
 	  {
 	    void (*_function) (sigval_t);	/* Function to start.  */

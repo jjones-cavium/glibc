@@ -1,3 +1,22 @@
+2014-04-24  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #7887
+	* ports/sysdeps/unix/sysv/linux/generic/bits/shm.h (__SHMID_DS_SIZE_TYPE): Define.
+	(struct shmid_ds): Use __SHMID_DS_SIZE_TYPE for shm_segsz instead of __syscall_ulong_t.
+	* sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__SIGINFO_INNER): Define.
+	(__RUSAGE_LONG): Redefine using __SIGINFO_INNER.
+	(__SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS): Delete.
+	(__SHMID_DS_SIZE_TYPE): Define.
+	(__SIGINFO_VOIDPOINTER): Define.
+	(__SIGINFO_BAND): Define.
+	(__SI_PAD_SIZE): Define.
+	* sysdeps/unix/sysv/linux/bits/siginfo.h (__SIGINFO_VOIDPOINTER): Define.
+	(__SIGINFO_BAND): Define.
+	(union sigval): Use __SIGINFO_VOIDPOINTER for sival_ptr.
+	(__SI_PAD_SIZE): Only define if not already defined.
+	(struct siginfo): Use __SIGINFO_VOIDPOINTER for si_addr.
+	Use __SIGINFO_BAND for si_band.
+
 2014-04-22  Yufeng Zhang  <yufeng.zhang@arm.com>
 
 	* stdlib/longlong.h (count_leading_zeros, count_trailing_zeros)

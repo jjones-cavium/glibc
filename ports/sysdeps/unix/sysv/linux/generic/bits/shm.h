@@ -51,11 +51,15 @@ extern int __getpagesize (void) __THROW __attribute__ ((__const__));
 /* Type to count number of attaches.  */
 typedef __syscall_ulong_t shmatt_t;
 
+#ifndef __SHMID_DS_SIZE_TYPE
+#define __SHMID_DS_SIZE_TYPE(field) size_t field
+#endif
+
 /* Data structure describing a shared memory segment.  */
 struct shmid_ds
   {
     struct ipc_perm shm_perm;		/* operation permission struct */
-    __syscall_ulong_t shm_segsz;	/* size of segment in bytes */
+    __SHMID_DS_SIZE_TYPE(shm_segsz);	/* size of segment in bytes */
     __time_t shm_atime;			/* time of last shmat() */
 #ifndef __TIME_T_64_BITS
     unsigned long int __unused1;

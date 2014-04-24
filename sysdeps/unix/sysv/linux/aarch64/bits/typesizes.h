@@ -84,32 +84,43 @@
 #define __STATFS_MATCHES_STATFS64_TYPE 1
 
 
-/* Big-endian ILP32 needs some padding in some cases */
-#if !defined(__LP64__) && defined(__AARCH64EB__)
+/* LP32 needs some padding in some cases */
+
+#ifndef __LP64__
+
+# undef __SIGINFO_INNER
+# ifdef __AARCH64EB__
+#  define __SIGINFO_INNER(type, field)		\
+	__extension__ struct {			\
+		int __pad_##field;		\
+		type field;			\
+	} __attribute__((aligned(8) ))
+# else
+#  define __SIGINFO_INNER(type, field)		\
+	__extension__ struct {			\
+		type field;			\
+		int __pad_##field;		\
+	} __attribute__((aligned(8) ))
+# endif
+
 # define __RUSAGE_LONG(__field)			\
-    __extension__ union				\
-      {						\
-	__extension__ struct			\
-	  {					\
-	    long int __##__field##_pad;		\
-	    long int __field;			\
-	  };					\
-	__syscall_slong_t __##__field##_word;	\
-      }
-#define __SIZE_T_NEEDS_PAD_BEFORE_SHMID_DS
+		__SIGINFO_INNER(long, __field)
+
+# define __SHMID_DS_SIZE_TYPE(__field)		\
+		__SIGINFO_INNER(size_t, __field)
+
+# undef __SIGINFO_VOIDPOINTER
+# define __SIGINFO_VOIDPOINTER(field)		\
+		__SIGINFO_INNER(void*, field)
+
+# undef __SIGINFO_BAND
+# define __SIGINFO_BAND(field)			\
+	__SIGINFO_INNER(long, field)
 #endif
+
 
 #define __TIME_T_64_BITS
 
-
-#ifndef __LP64__
-/* si_utime and si_stime must be 4 byte aligned for ILP32 to match the
-   kernel.  We align siginfo_t to 8 bytes so that si_utime and si_stime
-   are actually aligned to 8 bytes since their offsets are multiple of
-   8 bytes.  */
-#  define __SI_ALIGNMENT __attribute__ ((__aligned__ (8)))
-#  define __SIGCHLD_CLOCK_T __CLOCK_T_TYPE __attribute__ ((__aligned__ (4)))
-#endif
-
+#define __SI_PAD_SIZE     ((__SI_MAX_SIZE / sizeof (int)) - 4)
 
 #endif /* bits/typesizes.h */
