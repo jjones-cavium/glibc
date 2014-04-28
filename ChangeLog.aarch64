@@ -1,3 +1,12 @@
+2014-04-27  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/sigaction.c: Fix copyright header.
+	(__libc_sigaction): Handle kernel_sigaction where the fields are
+	unsigned long long in type so that ILP32 structure layout exactly
+	matches LP64's.
+	Also the syscall will never return ENOSYS so delete that part of the code.
+	* sysdeps/unix/sysv/linux/aarch64/kernel_sigaction.h: New header.
+
 2014-04-24  Ian Bolton  <ian.bolton@arm.com>
 
 	* sysdeps/aarch64/fpu/fclrexcpt.c (feclearexcept): Don't write to
