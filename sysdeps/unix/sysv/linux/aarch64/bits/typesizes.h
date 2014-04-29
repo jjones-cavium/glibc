@@ -70,6 +70,7 @@
 
 /* Number of descriptors that can fit in an `fd_set'.  */
 #define	__FD_SETSIZE		1024
+#define __FD_MASK_TYPE		__SYSCALL_SLONG_TYPE
 
 /* Tell the libc code that off_t and off64_t are actually the same type
    for all ABI purposes, even if possibly expressed as different base types

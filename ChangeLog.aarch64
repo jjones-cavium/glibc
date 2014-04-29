@@ -1,3 +1,10 @@
+2014-04-29  Andrew Pinski  <apinski@cavium.com>
+
+	* misc/sys/select.h (__FD_MASK_TYPE): Define.
+	(__fd_mask): Change the typedef to be based on __FD_MASK_TYPE.
+	* sysdeps/unix/sysv/linux/aarch64/bits/typesizes.h (__FD_MASK_TYPE): Define
+	to __SYSCALL_SLONG_TYPE.
+
 2014-04-27  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/sigaction.c: Fix copyright header.

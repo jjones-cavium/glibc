@@ -49,9 +49,12 @@ typedef __suseconds_t suseconds_t;
 # define __suseconds_t_defined
 #endif
 
+/* The fd_set member is required to be an array of longs by XPG4.2.  */
+#ifndef __FD_MASK_TYPE
+#define __FD_MASK_TYPE long
+#endif
 
-/* The fd_set member is required to be an array of longs.  */
-typedef long int __fd_mask;
+typedef __FD_MASK_TYPE __fd_mask;
 
 /* Some versions of <linux/posix_types.h> define this macros.  */
 #undef	__NFDBITS
