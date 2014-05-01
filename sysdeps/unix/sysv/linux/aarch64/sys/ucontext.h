@@ -48,11 +48,11 @@ typedef struct ucontext
   {
     __SYSCALL_ULONG_TYPE uc_flags;
 #if defined(__ILP32__) && defined(__AARCH64EB__)
-    int __pag_uc_link;
+    int __pad_uc_link;
 #endif
     struct ucontext *uc_link;
 #if defined(__ILP32__) && !defined(__AARCH64EB__)
-    int __pag_uc_link;
+    int __pad_uc_link;
 #endif
     stack_t uc_stack;
     __sigset_t uc_sigmask;
