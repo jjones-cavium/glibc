@@ -1,3 +1,8 @@
+2014-07-12  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (ARGIFY): Rewrite
+	so it does not truncate already 64bit values.
+
 2014-04-30  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/bits/sigstack.h: New file.
