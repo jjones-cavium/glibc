@@ -1,3 +1,8 @@
+2014-06-23  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (ARGIFY):
+	Rewrite again but this time zero extend for pointers.
+
 2014-06-12  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/semctl.c: New file.
