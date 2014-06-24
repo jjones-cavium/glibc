@@ -1,8 +1,8 @@
-2014-07-12  Andrew Pinski  <apinski@cavium.com>
+2014-06-12  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/ilp32/semctl.c: New file.
 
-2014-07-12  Andrew Pinski  <apinski@cavium.com>
+2014-06-12  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (ARGIFY): Rewrite
 	so it does not truncate already 64bit values.
