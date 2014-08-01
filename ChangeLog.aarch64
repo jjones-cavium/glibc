@@ -1,3 +1,9 @@
+2014-07-31  Andrew Pinski  <apinski@cavium.com>
+
+	Bug #11652
+	* sysdeps/unix/sysv/linux/aarch64/sysdep.c (__syscall_error): Use __syscall_slong_t
+	instead of long type so this work correctly on ILP32.
+
 2014-06-23  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/sysdep.h (ARGIFY):
