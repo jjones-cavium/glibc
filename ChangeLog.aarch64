@@ -1,3 +1,8 @@
+2014-09-03  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/Makefile:
+	Fix macro definitions for ILP32/LP64 usage.
+
 2014-08-18  Naveen H.S  <Naveen.Hurugalawadi@caviumnetworks.com>
 
 	* include/fenv.h (rm_ctx): Define new struct.

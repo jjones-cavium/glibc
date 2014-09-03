@@ -34,18 +34,18 @@ ifeq (,$(filter $(default-abi),$(abi-variants)))
 Unknown ABI, must be one of $(abi-variants)
 endif
 
-abi-lp64-options := -D__LP64__ -U__AARCH64EB__
+abi-lp64-options := -D__LP64__ -U__AARCH64EB__ -U__ILP32__
 abi-lp64-condition := __WORDSIZE == 64 && !defined __AARCH64EB__ 
 abi-lp64-ld-soname := ld-linux-aarch64.so.1
 
-abi-lp64_be-options := -D__LP64__ -D__AARCH64EB__
+abi-lp64_be-options := -D__LP64__ -D__AARCH64EB__ -U__ILP32__
 abi-lp64_be-condition := __WORDSIZE == 64 && defined __AARCH64EB__
 abi-lp64_be-ld-soname := ld-linux-aarch64_be.so.1
 
-abi-ilp32-options := -U__LP64__ -U__AARCH64EB__
+abi-ilp32-options := -U__LP64__ -U__AARCH64EB__ -D__ILP32__
 abi-ilp32-condition := __WORDSIZE == 32 && !defined __AARCH64EB__
 abi-ilp32-ld-soname := ld-linux-aarch64_ilp32.so.1
 
-abi-ilp32_be-options := -U__LP64__ -D__AARCH64EB__
+abi-ilp32_be-options := -U__LP64__ -D__AARCH64EB__ -D__ILP32__
 abi-ilp32_be-condition := __WORDSIZE == 32 && defined __AARCH64EB__
 abi-ilp32_be-ld-soname := ld-linux-aarch64_be_ilp32.so.1
