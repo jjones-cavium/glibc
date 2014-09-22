@@ -240,14 +240,14 @@ _dl_start_user:							\n\
 	cmp	w5, #0						\n\
 	bne	1b						\n\
 	// shuffle envp down					\n\
-1:	ldr	x5, [x4], #4					\n\
+1:	ldr	w5, [x4], #4					\n\
 	str	w5, [x3], #4					\n\
 	cmp	w5, #0						\n\
 	bne	1b						\n\
 	// shuffle auxv down					\n\
-1:	ldp	x0, x5, [x4, #16]!				\n\
-	stp	x0, x5, [x3], #16				\n\
-	cmp	x0, #0						\n\
+1:	ldp	w0, w5, [x4, #8]!				\n\
+	stp	w0, w5, [x3], #8				\n\
+	cmp	w0, #0						\n\
 	bne	1b						\n\
 	// Update _dl_argv					\n\
 	adrp	x3, _dl_argv					\n\

@@ -1,3 +1,8 @@
+2014-09-22  Andrew Pinski  <apinski@cavium.com>
+
+	* sysdeps/aarch64/dl-machine.h (RTLD_START): Fix a bug dealing with
+	env and auxv in ILP32.
+
 2014-09-03  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/unix/sysv/linux/aarch64/Makefile:
