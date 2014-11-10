@@ -26,6 +26,12 @@
 	* malloc/malloc.c (__libc_memalign): Check the value of bytes
 	does not overflow.
 
+2013-09-11  Will Newton  <will.newton@linaro.org>
+
+	[BZ #15855]
+	* malloc/malloc.c (__libc_pvalloc): Check the value of bytes
+	does not overflow.
+
 2012-11-14  H.J. Lu  <hongjiu.lu@intel.com>
 
 	[BZ #14831]
