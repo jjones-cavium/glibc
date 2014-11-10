@@ -3083,6 +3083,13 @@ __libc_valloc(size_t bytes)
 
   size_t pagesz = GLRO(dl_pagesize);
 
+  /* Check for overflow.  */
+  if (bytes > SIZE_MAX - pagesz - MINSIZE)
+    {
+      __set_errno (ENOMEM);
+      return 0;
+    }
+
   __malloc_ptr_t (*hook) __MALLOC_PMT ((size_t, size_t,
 					const __malloc_ptr_t)) =
     force_reg (__memalign_hook);
