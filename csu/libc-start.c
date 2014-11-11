@@ -190,6 +190,16 @@ LIBC_START_MAIN (int (*main) (int, char **, char ** MAIN_AUXVEC_DECL),
 # else
   __stack_chk_guard = stack_chk_guard;
 # endif
+
+  /* Set up the pointer guard value.  */
+  uintptr_t pointer_chk_guard = _dl_setup_pointer_guard (_dl_random,
+                                                        stack_chk_guard);
+# ifdef THREAD_SET_POINTER_GUARD
+  THREAD_SET_POINTER_GUARD (pointer_chk_guard);
+# else
+  __pointer_chk_guard_local = pointer_chk_guard;
+# endif
+
 #endif
 
   /* Register the destructor of the dynamic linker if there is any.  */
