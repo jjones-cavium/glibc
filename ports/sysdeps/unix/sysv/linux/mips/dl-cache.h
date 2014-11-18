@@ -20,9 +20,17 @@
 
 /* Redefine the cache ID for new ABIs; o32 keeps using the generic check.  */
 #if _MIPS_SIM == _ABI64
+#ifdef __mips_hard_float
+# define _DL_CACHE_DEFAULT_ID	(FLAG_MIPS64_LIBN64 | FLAG_ELF_LIBC6 | FLAG_MIPS_LIBHF)
+#else
 # define _DL_CACHE_DEFAULT_ID	(FLAG_MIPS64_LIBN64 | FLAG_ELF_LIBC6)
+#endif
 #elif _MIPS_SIM == _ABIN32
+#ifdef __mips_hard_float
+# define _DL_CACHE_DEFAULT_ID	(FLAG_MIPS64_LIBN32 | FLAG_ELF_LIBC6 | FLAG_MIPS_LIBHF)
+#else
 # define _DL_CACHE_DEFAULT_ID	(FLAG_MIPS64_LIBN32 | FLAG_ELF_LIBC6)
+#endif
 #endif
 
 #ifdef _DL_CACHE_DEFAULT_ID
@@ -36,6 +44,14 @@
       size_t len = strlen (dir);				\
       char path[len + 3];					\
       memcpy (path, dir, len + 1);				\
+      if (len >= 9                                              \
+          && (! memcmp (path + len - 9, "/lib64-fp", 9)            \
+              || ! memcmp (path + len - 9, "/lib32-fp", 9)))       \
+        {                                                       \
+          len -= 3;                                             \
+          path[len] = '\0';                                     \
+        }                                                       \
+      add_dir (path);                                           \
       if (len >= 6						\
 	  && (! memcmp (path + len - 6, "/lib64", 6)		\
 	      || ! memcmp (path + len - 6, "/lib32", 6)))	\
@@ -49,6 +65,10 @@
 	  memcpy (path + len, "32", 3);				\
 	  add_dir (path);					\
 	  memcpy (path + len, "64", 3);				\
+	  add_dir (path);					\
+	  memcpy (path + len, "32-fp", 6);				\
+	  add_dir (path);					\
+	  memcpy (path + len, "64-fp", 6);				\
 	  add_dir (path);					\
 	}							\
     } while (0)

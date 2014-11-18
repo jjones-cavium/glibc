@@ -47,6 +47,9 @@ process_elf_file (const char *file_name, const char *lib, int *flag,
       /* n32 libraries are always libc.so.6+.  */
       if (!ret && (elf32_header->e_flags & EF_MIPS_ABI2) != 0)
 	*flag = FLAG_MIPS64_LIBN32|FLAG_ELF_LIBC6;
+
+      if (!ret && (elf32_header->e_flags & EF_MIPS_HARD_FLOAT) != 0)
+	*flag |= FLAG_MIPS_LIBHF;
     }
   else
     {
@@ -55,6 +58,9 @@ process_elf_file (const char *file_name, const char *lib, int *flag,
       /* n64 libraries are always libc.so.6+.  */
       if (!ret)
 	*flag = FLAG_MIPS64_LIBN64|FLAG_ELF_LIBC6;
+
+      if (!ret && (elf_header->e_flags & EF_MIPS_HARD_FLOAT) != 0)
+	*flag |= FLAG_MIPS_LIBHF;
     }
 
   return ret;

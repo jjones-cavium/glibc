@@ -83,6 +83,16 @@ elf_machine_matches_host (const ElfW(Ehdr) *ehdr)
     return 0;
 #endif
 
+#ifdef __mips_hard_float
+  /* Don't link soft float libraries with hard-float */
+  if (!(ehdr->e_flags & EF_MIPS_HARD_FLOAT))
+     return 0;
+#else
+  /* Don't link hard float libraries with soft-float */
+  if (ehdr->e_flags & EF_MIPS_HARD_FLOAT)
+     return 0;
+#endif
+  
   switch (ehdr->e_machine)
     {
     case EM_MIPS:

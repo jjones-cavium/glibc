@@ -1,3 +1,11 @@
+2014-11-18  Praveen Jonnalagadda <pjonnalagadda@caviumnetworks.com>
+            Naveen Hurugalawadi <Naveen.Hurugalawadi@caviumnetworks.com>
+
+	* elf/cache.c (print_entry): Consider hard-float.
+	* elf/elf.h: Add elf header flags EF_MIPS_HARD_FLOAT and
+	EF_MIPS_SINGLE_FLOAT.
+	* sysdeps/generic/ldconfig.h: Add FLAG_MIPS_LIBHF for hard-float.
+
 2014-11-11  Manjunath Matti  <mmatti@caviumnetworks.com>
 
 	Backport 

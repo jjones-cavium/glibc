@@ -1353,6 +1353,8 @@ typedef struct
 #define EF_MIPS_64BIT_WHIRL 16
 #define EF_MIPS_ABI2	    32
 #define EF_MIPS_ABI_ON32    64
+#define EF_MIPS_HARD_FLOAT    0x00000200
+#define EF_MIPS_SINGLE_FLOAT  0x00000400
 #define EF_MIPS_ARCH	    0xf0000000	/* MIPS architecture level */
 
 /* Legal values for MIPS architecture level.  */
