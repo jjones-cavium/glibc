@@ -1,3 +1,7 @@
+2014-11-11  Alan Hayward  <alan.hayward@arm.com>
+
+	* sysdeps/unix/sysv/linux/aarch64/bits/ipc.h: New file.
+
 2014-09-22  Andrew Pinski  <apinski@cavium.com>
 
 	* sysdeps/aarch64/dl-machine.h (RTLD_START): Fix a bug dealing with
