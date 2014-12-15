@@ -16,7 +16,7 @@ Version 2.16.1
   15844, 15847, 15849, 15855, 15856, 15857, 15859, 15867, 15886, 15887,
   15890, 15892, 15893, 15895, 15897, 15905, 15909, 15919, 15921, 15923,
   15939, 15948, 15963, 15966, 15988, 16032, 16034, 16036, 16041, 16072,
-  16617, 17625.
+  16617, 17625, 17630.
 
 * CVE-2104-7817 The wordexp function could ignore the WRDE_NOCMD flag
   under certain input conditions resulting in the execution of a shell for
@@ -26,6 +26,9 @@ Version 2.16.1
 
 * CVE-2012-3406 printf-style functions could run into a stack overflow when
   processing format strings with a large number of format specifiers.
+
+* The nss_dns implementation of getnetbyname could run into an infinite loop
+  if the DNS response contained a PTR record of an unexpected format.
 
 * CVE-2012-4412 The strcoll implementation caches indices and rules for
   large collation sequences to optimize multiple passes.  This cache
