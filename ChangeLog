@@ -1,3 +1,9 @@
+2015-02-24  Kevin Easton  <kevin@guarana.org>
+
+	[BZ #16145] (partial fix)
+	* time/tzset.c (__tz_convert): Unlock tzset_lock earlier
+	to reduce lock contention.
+
 2013-05-21  Andreas Schwab  <schwab@suse.de>
 
 	[BZ #15014]
